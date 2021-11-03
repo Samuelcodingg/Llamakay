@@ -5,11 +5,11 @@ Sistema Web para la bolsa laboral de los practicantes de la FISI
 
 ### Frontend
 
-![](https://drive.google.com/file/d/17jLgsmTVHePFfovQZvmjuxaJE0syIiou/view?usp=sharing)
+![](https://github.com/Samuelcodingg/Llamakay/blob/master/frontend/public/frontend-folder-structure.png)
 
 ### Backend
 
-![](https://drive.google.com/file/d/1rCOfunRj8WoXuR614MccLbcITo2OlTxJ/view?usp=sharing)
+![](https://github.com/Samuelcodingg/Llamakay/blob/master/frontend/public/backend-folder-structure.png)
 
 ## Nota
 
