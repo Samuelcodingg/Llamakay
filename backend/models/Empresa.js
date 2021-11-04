@@ -70,7 +70,6 @@ empresaSchema.virtual('password')
         this._password = password;
         this.salt = uuidv1();
         this.psw_empresa = this.encryptPassword(password);
-        console.log(psw_empresa);
     })
     .get(function(){
         return this._password;
