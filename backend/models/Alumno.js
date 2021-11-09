@@ -64,6 +64,21 @@ const alumnoSchema = new mongoose.Schema({
             type: String,
             trim: true,   
             maxlength: 500  
+        },
+        universidad: {
+            type: String,
+            trim: true,   
+            maxlength: 50  
+        },
+        facultad: {
+            type: String,
+            trim: true,   
+            maxlength: 50  
+        },
+        escuela: {
+            type: String,
+            trim: true,   
+            maxlength: 50  
         }
     },
     {timestamps: true}

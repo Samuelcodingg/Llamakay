@@ -61,7 +61,38 @@ const empresaSchema = new mongoose.Schema({
         type: String,
         trim: true,   
         maxlength: 500   
-    }},
+    },
+    pais: {
+        type: String,
+        trim: true,
+        maxlength: 50,
+        required: true
+    },
+    departamento: {
+        type: String,
+        trim: true,
+        maxlength: 50,
+        required: true
+    },
+    distrito: {
+        type: String,
+        trim: true,
+        maxlength: 50,
+        required: true
+    },
+    rubro: {
+        type: String,
+        trim: true,
+        maxlength: 50,
+        required: true
+    },
+    tipo_usuario: {
+        type: String,
+        trim: true,
+        maxlength: 50,
+        required: true
+    }
+},
     {timestamps: true}
 );
 

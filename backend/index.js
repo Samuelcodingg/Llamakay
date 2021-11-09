@@ -20,6 +20,7 @@ mongoose.connect(process.env.DATABASE).then(() => { console.log('DB connection s
 
 //Rutas setup
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/anuncio', require('./routes/anuncio'));
 
 //Corren en el puerto
 const port = process.env.PORT;
