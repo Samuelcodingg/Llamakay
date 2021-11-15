@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from './Logo.png';
+import logo from './Logo-blanco.png';
 
 export const NavbarComponent = () => {
     return (
-        <nav className="d-flex justify-content-between align-items-center bg-principal">
+        <nav className="d-flex justify-content-between align-items-center bg-oscuro">
             <div>
                 <Link
                     to="/"
@@ -15,23 +15,20 @@ export const NavbarComponent = () => {
             <div>
                 <ul className="navbar mb-0">
                     <NavLink
-                        to="/login"
-                        className="me-5 text-decoration-none  "  
-                        style={({ isActive }) => ({ color: isActive ? 'gray' : 'black' }) }
+                        to="/authentication/login"
+                        className="me-5 text-decoration-none text-white  "  
                     >
                         Ingresar como empresa
                     </NavLink>
                     <NavLink
-                        to="/register"
-                        className="me-5 text-decoration-none  "       
-                        style={({ isActive }) => ({ color: isActive ? 'gray' : 'black' }) }
+                        to="/authentication/register"
+                        className="me-5 text-decoration-none text-white  "       
                     >
                         Crear cuenta
                     </NavLink>
                     <NavLink
-                        to="/login"
-                        className="me-5 text-decoration-none  py-2 px-4 bg-secundario rounded shadow-lg border-btn"       
-                        style={({ isActive }) => ({ color: isActive ? 'gray' : 'black' }) }
+                        to="/authentication/login"
+                        className="me-5 text-decoration-none py-2 px-4 bg-white rounded shadow-lg border-btn"       
                     >
                         Iniciar Sesión
                     </NavLink>

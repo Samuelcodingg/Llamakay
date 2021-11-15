@@ -14,9 +14,9 @@ export const AppRouter = () => {
         <Router>
             <NavbarComponent />
 
-            <div className="container mt-5">
+            <div>
                 <Routes>
-                    <Route path="/login" element={<AuthenticationPage />} />
+                    <Route path="/authentication/:type" element={<AuthenticationPage />} />
                 </Routes>
 
             </div>
