@@ -11,6 +11,11 @@ body {
   font-family: 'Rosario', sans-serif;
 }
 
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+}
+
 /*utilities*/
 
 
@@ -19,9 +24,67 @@ body {
 }
 
 .bg-secundario {
-  background-color: #A7CBFF;
+  background-color: #A7CBFF !important; 
 }
 
 .border-btn {
-  border: 1px solid #8E8E8E;
+  border: 1px solid #8E8E8E !important;
+}
+
+.bg-oscuro {
+  background-color: #010E20 !important;
+}
+
+.just-bottom-border {
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-bottom: 1px solid #8E8E8E !important;
+}
+
+.remove-focus:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.rounded-25 {
+  border-radius: 25px !important;
+}
+
+.remove-border-right {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.fs-ltl {
+  font-size: 0.8rem !important;
+}
+
+/*footer*/
+
+.send-btn {
+  top: -63px;
+  right: -125px;
+}
+
+/*login-page*/
+
+.saly {
+  top: -30px;
+  left: 50px;
+}
+
+/*responsive costumization*/
+
+@media (max-width: 1200px) {
+  .saly {
+    top: -30px;
+    left: -50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-ll-container {
+    border-radius: 0px !important;
+  }
 }
