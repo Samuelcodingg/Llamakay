@@ -11,6 +11,11 @@ body {
   font-family: 'Rosario', sans-serif;
 }
 
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+}
+
 /*utilities*/
 
 
@@ -19,9 +24,16 @@ body {
 }
 
 .bg-secundario {
-  background-color: #A7CBFF;
+  background-color: #A7CBFF !important; 
 }
 
 .border-btn {
-  border: 1px solid #8E8E8E;
+  border: 1px solid #8E8E8E !important;
+}
+
+/*footer*/
+
+.send-btn {
+  top: -63px;
+  right: -125px;
 }

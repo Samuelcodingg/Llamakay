@@ -5,6 +5,7 @@ import {
     Routes,
 } from 'react-router-dom';
 import { AuthenticationPage } from '../components/authenticationpage/AuthenticationPage';
+import { Footer } from '../components/ui/Footer';
 import { NavbarComponent } from '../components/ui/NavbarComponent';
 
 
@@ -19,6 +20,8 @@ export const AppRouter = () => {
                 </Routes>
 
             </div>
+
+            <Footer />
         </Router>
     )   
 }
