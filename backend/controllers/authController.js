@@ -37,3 +37,51 @@ exports.signupAlumno = (req, res) => {
         })
     })
 }
+
+exports.signinEmpresa = (req, res) => {
+    const { correo_empresa, password } = req.body;
+    Empresa.findOne({ correo_empresa }, (error, empresa) => {
+        if(error || !empresa) {
+            return res.status(401).json({
+                error: "Empresa not found"
+            });
+        }
+        if(!empresa.authenticate(password)) {
+            return res.status(401).json({
+                error: "Password is incorrect"
+            });
+        }
+        const token = jwt.sign({
+            _id: empresa._id
+        }, process.env.JWT_SECRET, {
+            expiresIn: '1d'
+        });
+        res.cookie('t', token, { expire: new Date() + 9999 });
+        const { _id, nombre_empresa, correo_empresa } = empresa;
+        return res.json({ token, empresa: { _id, nombre_empresa, correo_empresa } });
+    });
+}
+
+exports.signinAlumno = (req, res) => {
+    const { correo_alumno, password } = req.body;
+    Alumno.findOne({ correo_alumno }, (error, alumno) => {
+        if(error || !alumno) {
+            return res.status(401).json({
+                error: "Alumno not found"
+            });
+        }
+        if(!alumno.authenticate(password)) {
+            return res.status(401).json({
+                error: "Password is incorrect"
+            });
+        }
+        const token = jwt.sign({
+            _id: alumno._id
+        }, process.env.JWT_SECRET, {
+            expiresIn: '1d'
+        });
+        res.cookie('t', token, { expire: new Date() + 9999 });
+        const { _id, nombre_alumno, correo_alumno } = alumno;
+        return res.json({ token, alumno: { _id, nombre_alumno, correo_alumno } });
+    });
+}
