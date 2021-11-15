@@ -42,31 +42,21 @@ export const RegisterForm = () => {
                         <div className="form-group mt-4">
                             <input type="password" placeholder="Confirmar contraseña" className="form-control remove-focus just-bottom-border" />
                         </div>
+                        <div className="form-group mt-4 text-start">
+                            <input type="checkbox" />
+                            <span> He aceptado los <Link to="/" className="text-primary text-decoration-underline">términos y condiciones</Link> </span>
+                        </div>
                         <div className="form-group mt-4">
-                            <button className="w-100 rounded border-btn shadow bg-oscuro text-white py-2 fw-bold">Iniciar sesión</button>
+                            <button className="w-100 rounded border-btn shadow bg-oscuro text-white py-2 fw-bold">Crear una cuenta</button>
                         </div>
                         <div className="d-flex flex-column my-4">
-                            <div className="d-flex justify-content-between ">
-                                <Link
-                                    to="/register"
-                                    className="text-secondary"
-                                >
-                                    ¿Aún no estás registrado?
-                                </Link>
-                                <Link
-                                    to="/forgotpassword"
-                                    className="text-secondary"
-                                >
-                                    ¿Olvidaste tu contraseña?
-                                </Link>
-                            </div>
-                            <div className="mt-3">
-                                <Link
+                            <div className="mt-2">
+                                <p
                                     to="/"
                                     className="text-secondary"
                                 >
-                                    ¿Eres una nueva empresa?
-                                </Link>
+                                    ¿Ya tienes cuenta? <Link to="/authentication/login" className="text-primary text-decoration-underline"> Inicia sesión  </Link>
+                                </p>
                             </div>
                         </div>
                     </form>
