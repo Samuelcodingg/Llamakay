@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { authenticate, signin } from '../../api/auth';
 import logo from '../ui/Logo.png';
 
 
@@ -20,6 +21,19 @@ export const LoginForm = () => {
     const clickSubmit = event => {
         event.preventDefault();
         console.log('values', values);
+        setValues(values);
+        signin({ correo_empresa, password })
+            .then(data => {
+                console.log('data', data);
+                if (data.error) {
+                    console.log('data.error', data.error);
+                } else {
+                    authenticate(data, () => {
+                        setValues({ ...values, redirectToReferrer: true });
+                    });
+                }
+            });
+
     };
 
     const redirectUser = () => {
@@ -30,6 +44,7 @@ export const LoginForm = () => {
 
     return (
         <>
+            {redirectUser()}
             <img src={logo} alt="logo" className="img-fluid" />
             <p>Pensando en tu futuro y en tu carrera profesional</p>
             <div className="container">
