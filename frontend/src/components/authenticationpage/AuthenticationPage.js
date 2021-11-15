@@ -11,10 +11,12 @@ export const AuthenticationPage = () => {
 
     return (
         <div className="bg-oscuro">
-            <img src={saly} alt="Saly" className="img-fluid position-absolute saly d-none d-md-block" />
+            <div className="position-absolute saly d-none d-lg-block">
+                <img src={saly} alt="Saly" className="position-relative img-fluid saly-img" />
+            </div>
             <div className="container me-0">
                 <div className="row">
-                    <div className="offset-md-3 col-md-9 bg-white py-5 rounded-25 remove-border-right">
+                    <div className="offset-sm-3 col-sm-9 bg-white py-5 rounded-25 remove-border-right form-ll-container">
                         <div className="text-center">
                             { type === 'login' ? <LoginForm /> : <RegisterForm /> }
                         </div>

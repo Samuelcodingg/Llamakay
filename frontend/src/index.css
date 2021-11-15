@@ -73,3 +73,18 @@ a {
   top: -30px;
   left: 50px;
 }
+
+/*responsive costumization*/
+
+@media (max-width: 1200px) {
+  .saly {
+    top: -30px;
+    left: -50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-ll-container {
+    border-radius: 0px !important;
+  }
+}
