@@ -74,6 +74,13 @@ a {
   left: 50px;
 }
 
+/*register*/
+
+.btns-container-fg {
+  width: 120%;
+  margin-left: -8%;
+}
+
 /*responsive costumization*/
 
 @media (max-width: 1200px) {
@@ -86,5 +93,10 @@ a {
 @media (max-width: 576px) {
   .form-ll-container {
     border-radius: 0px !important;
+  }
+
+  .btns-container-fg {
+    width: 100%;
+    margin-left: 0px;
   }
 }
