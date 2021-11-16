@@ -1,35 +1,51 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { authenticate, isAuthenticated, signin } from '../../api/auth';
-import { handleChange } from '../../hooks/handleChange';
-import { AppContext } from '../../AppContext';
 import logo from '../ui/Logo.png';
 
 
 export const LoginForm = () => {
 
-    const { valuesLogin, setValuesLogin } = useContext(AppContext);
+    const [values, setValues] = useState({
+        correo: '',
+        password: '',
+        tipo_usuario: '',
+        redirectToReferrer: false
+    });
 
     const { token } = isAuthenticated();
 
-    const { correo, password, redirectToReferrer, tipo_usuario } = valuesLogin;
+    const { correo, password, redirectToReferrer, tipo_usuario } = values;
+
+    const handleChange = name => event => {
+        setValues({ ...values, [name]: event.target.value });
+    };
 
     const clickSubmit = event => {
         event.preventDefault();
-        console.log('valuesLogin', valuesLogin);
-        setValuesLogin(valuesLogin);
+        console.log('values', values);
+
+        if(correo === '' || password === '') {
+            alert('Todos los campos son obligatorios');
+            return;
+        }
+
+        setValues(values);
         signin({ correo, password, tipo_usuario })
             .then(data => {
                 console.log('data', data);
                 if (data.error) {
                     console.log('data.error', data.error);
+                    if(redirectToReferrer === false){
+                        alert('Usuario o contraseña incorrectos');
+                    }            
                 } else {
                     authenticate(data, () => {
-                        setValuesLogin({ ...valuesLogin, redirectToReferrer: true });
+                        setValues({ ...values, redirectToReferrer: true });
                     });
                 }
             });
-
+        
     };
 
     const redirectUser = () => {

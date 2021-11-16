@@ -1,18 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { isAuthenticated } from '../../api/auth';
-import { AppContext } from '../../AppContext';
 
 export const RegisterForm = () => {
-
-    const { valuesRegister, setValuesRegister } = useContext(AppContext);
-
-    const { correo, password, redirectToReferrer, tipo_usuario } = valuesRegister;
 
     const {token} = isAuthenticated();
 
     const redirectUser = () => {
-        if (redirectToReferrer || token ) {
+        if ( token ) {
             return <Redirect to='/' />
         }
     }
