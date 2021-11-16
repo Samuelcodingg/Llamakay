@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from './Logo-blanco.png';
 import send from './send.png';
 
@@ -13,36 +14,36 @@ export const Footer = () => {
                         <p className="mb-1 text-center">Copyright &copy; 2021 Llamakay.</p>
                         <p className="text-center">Todos los derechos reservados.</p>
                         <div className="d-flex justify-content-center">
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="me-4">
+                            <Link to="/" className="me-4">
                                 <i className="fab fa-instagram text-white"></i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="me-4">
+                            </Link>
+                            <Link to="/" className="me-4">
                                 <i className="fab fa-twitter text-white"></i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="me-4">
+                            </Link>
+                            <Link to="/" className="me-4">
                                 <i className="fab fa-linkedin-in text-white"></i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="">
+                            </Link>
+                            <Link to="/" className="">
                                 <i className="fab fa-facebook-square text-white"></i>
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
                     <div className="offset-md-2 col-md-2 mt-4 mt-md-0">
                         <h5 className="fw-bold">Compañía</h5>
                         <div className="d-flex flex-column">
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="mt-3 text-white">Nosotros</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="mt-3 text-white">Contáctanos</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="mt-3 text-white">Testimonios</a>
+                            <Link to="/" className="mt-3 text-white">Nosotros</Link>
+                            <Link to="/" className="mt-3 text-white">Contáctanos</Link>
+                            <Link to="/" className="mt-3 text-white">Testimonios</Link>
                         </div>
                     </div>
                     <div className="col-md-2 mt-4 mt-md-0 ">
                         <h5 className="fw-bold">Soporte</h5>
                         <div className="d-flex flex-column">
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="mt-3 text-white">Ayuda</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="mt-3 text-white">Términos de uso</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="mt-3 text-white">Legal</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="mt-3 text-white">Política de privacidad</a>
+                            <Link to="/" className="mt-3 text-white">Ayuda</Link>
+                            <Link to="/" className="mt-3 text-white">Términos de uso</Link>
+                            <Link to="/" className="mt-3 text-white">Legal</Link>
+                            <Link to="/" className="mt-3 text-white">Política de privacidad</Link>
                         </div>
                     </div>
                     <div className="col-md-2 mt-4 mt-md-0">

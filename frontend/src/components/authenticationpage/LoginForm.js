@@ -1,35 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { authenticate, signin } from '../../api/auth';
+import { authenticate, isAuthenticated, signin } from '../../api/auth';
+import { handleChange } from '../../hooks/handleChange';
+import { AppContext } from '../../AppContext';
 import logo from '../ui/Logo.png';
 
 
 export const LoginForm = () => {
 
-    const [values, setValues] = useState({
-        correo_empresa: '',
-        password: '',
-        redirectToReferrer: false
-    });
+    const { valuesLogin, setValuesLogin } = useContext(AppContext);
 
-    const { correo_empresa, password, redirectToReferrer } = values;
+    const { token } = isAuthenticated();
 
-    const handleChange = name => event => {
-        setValues({ ...values, [name]: event.target.value });
-    };
+    const { correo, password, redirectToReferrer, tipo_usuario } = valuesLogin;
 
     const clickSubmit = event => {
         event.preventDefault();
-        console.log('values', values);
-        setValues(values);
-        signin({ correo_empresa, password })
+        console.log('valuesLogin', valuesLogin);
+        setValuesLogin(valuesLogin);
+        signin({ correo, password, tipo_usuario })
             .then(data => {
                 console.log('data', data);
                 if (data.error) {
                     console.log('data.error', data.error);
                 } else {
                     authenticate(data, () => {
-                        setValues({ ...values, redirectToReferrer: true });
+                        setValuesLogin({ ...valuesLogin, redirectToReferrer: true });
                     });
                 }
             });
@@ -37,7 +33,7 @@ export const LoginForm = () => {
     };
 
     const redirectUser = () => {
-        if (redirectToReferrer) {
+        if (redirectToReferrer || token ) {
             return <Redirect to='/' />
         }
     }
@@ -52,11 +48,11 @@ export const LoginForm = () => {
                     <form className="col-md-6 mx-auto">
                         <div className="form-group mt-5">
                             <input 
-                                onChange={handleChange('correo_empresa')}
+                                onChange={handleChange('correo')}
                                 type="email" 
                                 className="form-control remove-focus just-bottom-border" 
                                 placeholder="Email"
-                                value={correo_empresa}  
+                                value={correo}  
                             />
                         </div>
                         <div className="form-group mt-4">
@@ -67,6 +63,18 @@ export const LoginForm = () => {
                                 className="form-control remove-focus just-bottom-border" 
                                 value={password}
                             />
+                        </div>
+                        <div className="form-group mt-4">
+                            <select
+                                className="form-control remove-focus just-bottom-border text-secondary"
+                                value={tipo_usuario}
+                                onChange={handleChange('tipo_usuario')}
+                            >
+                                <option value="">Seleccione un tipo de usuario</option>
+                                <option value="1">Empresa</option>
+                                <option value="2">Estudiante</option>
+                            </select>
+
                         </div>
                         <div className="form-group mt-4">
                             <button 

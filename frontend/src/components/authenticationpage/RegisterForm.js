@@ -1,9 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, Redirect } from 'react-router-dom'
+import { isAuthenticated } from '../../api/auth';
+import { AppContext } from '../../AppContext';
 
 export const RegisterForm = () => {
+
+    const { valuesRegister, setValuesRegister } = useContext(AppContext);
+
+    const { correo, password, redirectToReferrer, tipo_usuario } = valuesRegister;
+
+    const {token} = isAuthenticated();
+
+    const redirectUser = () => {
+        if (redirectToReferrer || token ) {
+            return <Redirect to='/' />
+        }
+    }
+
     return (
         <>
+            {redirectUser()}
             <div className="container">
                 <div className="row">
                     <form className="col-md-6 mx-auto">
@@ -45,6 +61,15 @@ export const RegisterForm = () => {
 
                         <div className="form-group mt-4">
                             <input type="email" className="form-control remove-focus just-bottom-border" placeholder="Email" />
+                        </div>
+                        <div className="form-group mt-4">
+                            <select
+                                className="form-control remove-focus just-bottom-border text-secondary"
+                            >
+                                <option>Seleccione su tipo de usuario</option>
+                                <option>Estudiante</option>
+                                <option>Empresa</option>
+                            </select>
                         </div>
                         <div className="form-group mt-4">
                             <input type="password" placeholder="Contraseña" className="form-control remove-focus just-bottom-border" />
