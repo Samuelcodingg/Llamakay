@@ -7,21 +7,18 @@ const alumnoSchema = new mongoose.Schema({
             type: String,
             trim: true,
             maxlength: 50,
-            required: true
         },
         app_alumno: {
             type: String,
             trim: true,
             maxlength: 50,
-            required: true
         },
         apm_alumno: {
             type: String,
             trim: true,
             maxlength: 50,
-            required: true
         },
-        correo_alumno: {
+        correo: {
             type: String,
             trim: true,
             maxlength: 50,
@@ -32,7 +29,6 @@ const alumnoSchema = new mongoose.Schema({
             type: String,
             trim: true,
             maxlength: 80,
-            required: true
         },
         cel_alumno: {
             type: Number,
@@ -42,7 +38,6 @@ const alumnoSchema = new mongoose.Schema({
         dni_alumno: {
             type: Number,
             trim: true,
-            required: true,
             maxlength: 8
         },
         psw_alumno: {

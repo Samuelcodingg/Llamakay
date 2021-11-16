@@ -1,7 +1,38 @@
 import { API } from '../config';
 
 export const signin = async (user) => {
-    const response = await fetch(`${API}/auth/signinEmpresa`, {
+
+    let usuario = '';
+
+    if(user.tipo_usuario === '1'){
+        usuario = 'Empresa'
+    }
+    else if(user.tipo_usuario === '2'){
+        usuario = 'Alumno'
+    }
+
+    const response = await fetch(`${API}/auth/signin${usuario}`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user)
+    });
+    return response.json();
+};
+
+export const signup = async (user) => {
+    let usuario = '';
+
+    if(user.tipo_usuario === '1'){
+        usuario = 'Empresa'
+    }
+    else if(user.tipo_usuario === '2'){
+        usuario = 'Alumno'
+    }
+
+    const response = await fetch(`${API}/auth/signup${usuario}`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',

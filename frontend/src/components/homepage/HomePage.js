@@ -4,10 +4,10 @@ import { isAuthenticated } from '../../api/auth';
 
 export const HomePage = () => {
 
-    const { empresa } = isAuthenticated();
+    const { token } = isAuthenticated();
 
     const redirectUser = () => {
-        if (!empresa) {
+        if (!token) {
             return <Redirect to="/authentication/login" />
         }
     }

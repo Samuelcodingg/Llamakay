@@ -8,8 +8,9 @@ exports.signupEmpresa = (req, res) => {
     empresa.save((error, empresa) => {
         console.log('Reached signup endpoint');
         if(error) {
+            console.log(error);
             return res.status(400).json({
-                error: "Please check fields, there was an Error"
+                error: "Por favor revise campos, hubo un error"
             });
         }
         empresa.salt = undefined;
@@ -18,6 +19,7 @@ exports.signupEmpresa = (req, res) => {
             empresa
         })
     })
+    
 }
 
 exports.signupAlumno = (req, res) => {
@@ -27,7 +29,7 @@ exports.signupAlumno = (req, res) => {
         console.log('Reached signup endpoint');
         if(error) {
             return res.status(400).json({
-                error: "Please check fields, there was an Error"
+                error: "Por favor revise campos, hubo un error"
             });
         }
         alumno.salt = undefined;
@@ -39,8 +41,8 @@ exports.signupAlumno = (req, res) => {
 }
 
 exports.signinEmpresa = (req, res) => {
-    const { correo_empresa, password } = req.body;
-    Empresa.findOne({ correo_empresa }, (error, empresa) => {
+    const { correo, password } = req.body;
+    Empresa.findOne({ correo }, (error, empresa) => {
         if(error || !empresa) {
             return res.status(401).json({
                 error: "Empresa not found"
@@ -57,14 +59,14 @@ exports.signinEmpresa = (req, res) => {
             expiresIn: '1d'
         });
         res.cookie('t', token, { expire: new Date() + 9999 });
-        const { _id, nombre_empresa, correo_empresa } = empresa;
-        return res.json({ token, empresa: { _id, nombre_empresa, correo_empresa } });
+        const { _id, nombre_empresa, correo } = empresa;
+        return res.json({ token, empresa: { _id, nombre_empresa, correo } });
     });
 }
 
 exports.signinAlumno = (req, res) => {
-    const { correo_alumno, password } = req.body;
-    Alumno.findOne({ correo_alumno }, (error, alumno) => {
+    const { correo, password } = req.body;
+    Alumno.findOne({ correo }, (error, alumno) => {
         if(error || !alumno) {
             return res.status(401).json({
                 error: "Alumno not found"
@@ -81,7 +83,7 @@ exports.signinAlumno = (req, res) => {
             expiresIn: '1d'
         });
         res.cookie('t', token, { expire: new Date() + 9999 });
-        const { _id, nombre_alumno, correo_alumno } = alumno;
-        return res.json({ token, alumno: { _id, nombre_alumno, correo_alumno } });
+        const { _id, nombre_alumno, correo } = alumno;
+        return res.json({ token, alumno: { _id, nombre_alumno, correo } });
     });
 }

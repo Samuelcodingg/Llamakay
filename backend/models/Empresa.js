@@ -7,31 +7,26 @@ const empresaSchema = new mongoose.Schema({
         type: String,
         trim: true,
         maxlength: 80,
-        required: true
     },
     rs_empresa: {
         type: String,
         trim: true,
         maxlength: 80,
-        required: true
     },
     ruc_empresa: {
         type: String,
         trim: true,
         maxlength: 11,
-        required: true
     },
     direccion_empresa: {
         type: String,
         trim: true,
         maxlength: 11,
-        required: true
     },
     nrocol_empresa: {
         type: Number,
         trim: true,
         maxlength: 45,
-        required: true
     },
     psw_empresa: {
         type: String,
@@ -42,9 +37,8 @@ const empresaSchema = new mongoose.Schema({
         type: String,
         trim: true,
         maxlength: 100,
-        required: true
     },
-    correo_empresa: {
+    correo: {
         type: String,
         trim: true,
         required: true,
@@ -54,7 +48,6 @@ const empresaSchema = new mongoose.Schema({
     cel_empresa: {
         type: Number,
         trim: true,
-        required: true,
         maxlength: 9
     },
     des_empresa: {
@@ -66,31 +59,26 @@ const empresaSchema = new mongoose.Schema({
         type: String,
         trim: true,
         maxlength: 50,
-        required: true
     },
     departamento: {
         type: String,
         trim: true,
         maxlength: 50,
-        required: true
     },
     distrito: {
         type: String,
         trim: true,
         maxlength: 50,
-        required: true
     },
     rubro: {
         type: String,
         trim: true,
         maxlength: 50,
-        required: true
     },
     tipo_usuario: {
         type: String,
         trim: true,
         maxlength: 50,
-        required: true
     }
 },
     {timestamps: true}

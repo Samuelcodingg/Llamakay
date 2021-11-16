@@ -1,8 +1,16 @@
+import { AppContext } from "./AppContext";
 import { AppRouter } from "./routers/AppRouter";
 
 function App() {
+
   return (
-    <AppRouter />
+    <AppContext.Provider
+      value={{
+        
+      }}
+    >
+      <AppRouter />
+    </AppContext.Provider>
   );
 }
 
