@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { isAuthenticated } from '../../api/auth';
 import logo from './Logo-blanco.png';
+import { NavLogged } from './NavLogged';
+import { NavNotLogged } from './NavNotLogged';
 
 export const NavbarComponent = () => {
+    
+    const { token } = isAuthenticated();
+    
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-oscuro">
             <div className="container-fluid">
@@ -16,24 +22,7 @@ export const NavbarComponent = () => {
                 </button>
                 <div className="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarNav">
                     <ul className="navbar-nav d-flex align-items-center text-center">
-                        <NavLink
-                        to="/authentication/login"
-                        className="me-md-5 text-decoration-none text-white me-0  mt-3 mt-md-0"  
-                        >
-                            Ingresar como empresa
-                        </NavLink>
-                        <NavLink
-                            to="/authentication/register"
-                            className="me-md-5 text-decoration-none text-white me-0 mt-3 mt-md-0"       
-                        >
-                            Crear cuenta
-                        </NavLink>
-                        <NavLink
-                            to="/authentication/login"
-                            className="me-md-5 text-decoration-none py-2 px-4 bg-white me-0 mt-3 mt-md-0 rounded shadow-lg border-btn"       
-                        >
-                            Iniciar Sesión
-                        </NavLink>
+                        { token ? <NavLogged /> : <NavNotLogged /> }
                     </ul>
                 </div>
             </div>

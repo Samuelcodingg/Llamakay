@@ -59,8 +59,8 @@ exports.signinEmpresa = (req, res) => {
             expiresIn: '1d'
         });
         res.cookie('t', token, { expire: new Date() + 9999 });
-        const { _id, nombre_empresa, correo } = empresa;
-        return res.json({ token, empresa: { _id, nombre_empresa, correo } });
+        const { _id, nc_empresa, correo } = empresa;
+        return res.json({ token, empresa: { _id, nc_empresa, correo } });
     });
 }
 
@@ -83,7 +83,7 @@ exports.signinAlumno = (req, res) => {
             expiresIn: '1d'
         });
         res.cookie('t', token, { expire: new Date() + 9999 });
-        const { _id, nombre_alumno, correo } = alumno;
-        return res.json({ token, alumno: { _id, nombre_alumno, correo } });
+        const { _id, nom_alumno, correo } = alumno;
+        return res.json({ token, alumno: { _id, nom_alumno, correo } });
     });
 }

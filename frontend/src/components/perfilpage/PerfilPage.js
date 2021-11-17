@@ -1,24 +1,25 @@
-import React from 'react';
+import React from 'react'
 import { Redirect } from 'react-router';
 import { isAuthenticated } from '../../api/auth';
-import { Footer } from '../ui/Footer';
 import { NavbarComponent } from '../ui/NavbarComponent';
+import { Footer } from '../ui/Footer';
 
-export const HomePage = () => {
+export const PerfilPage = () => {
 
     const { token } = isAuthenticated();
 
     const redirectUser = () => {
         if (!token) {
-            return <Redirect to="/authentication/login" />
+            return <Redirect to="/login" />
         }
     }
 
     return (
+     
         <div>
-            <NavbarComponent />
-            <h1>Autenticado !</h1>
             {redirectUser()}
+            <NavbarComponent />
+            <h1>PerfilPage</h1>
 
             <Footer />
         </div>
