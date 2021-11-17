@@ -87,3 +87,25 @@ exports.signinAlumno = (req, res) => {
         return res.json({ token, alumno: { _id, nom_alumno, correo } });
     });
 }
+
+
+// para alumnos
+
+exports.alumnoById = (req, res, next, id) => {
+    Alumno.findById(id).exec((err, alumno) => {
+        if (err || !alumno) {
+            return res.status(400).json({
+                error: 'Alumno no encontrado'
+            });
+        }
+        req.alumno = alumno;
+        next();
+    });
+};
+
+exports.getAlumnoById = (req, res, next) => {
+    if(req.alumno){
+        return res.json(req.alumno);
+    }
+    next();
+};
