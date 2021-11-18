@@ -16,7 +16,7 @@ Sistema Web para la bolsa laboral de los practicantes de la FISI
 * Para obtener las dependencias de tanto frontend como backend, utilizar el comando `npm install` en la respectiva carpeta individual.
 * En el backend, se deben considerar las variables de configuración del archivo .env, si no tiene este, crearlo y poner las variables siguientes.  
 `DATABASE=mongodb://localhost/llamakay`  
-`PORT=5000`
+`PORT=5000`  
 `JWT_SECRET=asa12jsjakdj2e3jdg`
 
 * En el frontend, igual crear el archivo .env y poner las variables siguientes. Donde 5000 es el puerto por el cual va a correr el servidor del backend.
