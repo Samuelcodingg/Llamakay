@@ -34,7 +34,7 @@ export const NavLogged = () => {
                     Cerrar sesión
                 </NavLink>
                 <NavLink
-                    to="/authentication/register"
+                    to="/perfil"
                     className="me-md-5 text-decoration-none text-white me-0 mt-3 mt-md-0"
                 >
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
