@@ -19,5 +19,5 @@ Sistema Web para la bolsa laboral de los practicantes de la FISI
 `PORT=5000`  
 `JWT_SECRET=asa12jsjakdj2e3jdg`
 
-* En el frontend, igual crear el archivo .env y poner las variables siguientes. Donde 5000 es el puerto por el cual va a correr el servidor del backend.
+* En el frontend, igual crear el archivo .env y poner las variables siguientes. Donde 5000 es el puerto por el cual va a correr el servidor del backend.  
 `REACT_APP_API_URL=http://localhost:5000/api`  
