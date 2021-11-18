@@ -11,7 +11,7 @@ export const PerfilPage = () => {
 
     const redirectUser = () => {
         if (!token) {
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
         }
     }
 

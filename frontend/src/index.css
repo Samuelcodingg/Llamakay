@@ -18,6 +18,9 @@ a {
 
 /*utilities*/
 
+.fontAwesome {
+  font-family: 'Helvetica', FontAwesome, sans-serif;
+}
 
 .bg-principal {
   background-color: #E2EBF8;
@@ -42,6 +45,10 @@ a {
   border-bottom: 1px solid #8E8E8E !important;
 }
 
+.just-left-border {
+  border-left: 1px solid #000 !important;
+}
+
 .remove-focus:focus {
   outline: none !important;
   box-shadow: none !important;
@@ -58,6 +65,18 @@ a {
 
 .fs-ltl {
   font-size: 0.8rem !important;
+}
+
+.rounded-plus {
+  border-radius: 20px !important;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.w-300 {
+  width: 300px !important;
 }
 
 /*footer*/
@@ -81,12 +100,28 @@ a {
   margin-left: -8%;
 }
 
+
+/*homepage*/
+.lugar-input {
+  border-left: 1px solid black !important;
+}
+
+.rounded-form {
+  border-radius: 50rem !important;
+}
+
 /*responsive costumization*/
 
 @media (max-width: 1200px) {
   .saly {
     top: -30px;
     left: -50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-searching {
+    border-radius: 20px !important;
   }
 }
 
