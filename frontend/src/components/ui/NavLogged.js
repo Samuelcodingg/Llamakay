@@ -1,12 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { isAuthenticated } from '../../api/auth';
 
 export const NavLogged = () => {
 
 
     const getName = () => {
-        localStorage.getItem('jwt')
-        return JSON.parse(localStorage.getItem('jwt')).alumno.nom_alumno
+        const { alumno, empresa } = isAuthenticated();
+
+        if (alumno) {
+            return alumno.nom_alumno;
+        } 
+        else if (empresa) {
+            return empresa.nc_empresa;
+        }
     }
 
     const name = getName();
