@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const uuidv1 = require('uuid/v1');
 
 const empresaSchema = new mongoose.Schema({
-    nc_empresa: {
+    nombre: {
         type: String,
         trim: true,
         maxlength: 80,
@@ -50,7 +50,7 @@ const empresaSchema = new mongoose.Schema({
         trim: true,
         maxlength: 9
     },
-    des_empresa: {
+    descripcion: {
         type: String,
         trim: true,   
         maxlength: 500   
@@ -79,6 +79,10 @@ const empresaSchema = new mongoose.Schema({
         type: String,
         trim: true,
         maxlength: 50,
+    },
+    photo: {
+        data: Buffer,
+        contentType: String
     }
 },
     {timestamps: true}

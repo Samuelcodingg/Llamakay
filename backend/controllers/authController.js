@@ -59,8 +59,8 @@ exports.signinEmpresa = (req, res) => {
             expiresIn: '1d'
         });
         res.cookie('t', token, { expire: new Date() + 9999 });
-        const { _id, nc_empresa, correo } = empresa;
-        return res.json({ token, empresa: { _id, nc_empresa, correo } });
+        const { _id, nombre, correo } = empresa;
+        return res.json({ token, empresa: { _id, nombre, correo } });
     });
 }
 
@@ -83,8 +83,9 @@ exports.signinAlumno = (req, res) => {
             expiresIn: '1d'
         });
         res.cookie('t', token, { expire: new Date() + 9999 });
-        const { _id, nom_alumno, correo } = alumno;
-        return res.json({ token, alumno: { _id, nom_alumno, correo } });
+        let { _id, nombre, correo, app_alumno, apm_alumno, descripcion, linkedin, github_link } = alumno;
+        nombre = nombre + ' ' + app_alumno + ' ' + apm_alumno;
+        return res.json({ token, alumno: { _id, nombre, correo, descripcion, linkedin, github_link } });
     });
 }
 
@@ -109,3 +110,25 @@ exports.getAlumnoById = (req, res, next) => {
     }
     next();
 };
+
+//para empresas
+
+exports.empresaById = (req, res, next, id) => {
+    Empresa.findById(id).exec((err, empresa) => {
+        if (err || !empresa) {
+            return res.status(400).json({
+                error: 'Empresa no encontrada'
+            });
+        }
+        req.empresa = empresa;
+        next();
+    });
+};
+
+exports.getEmpresaById = (req, res, next) => {
+    if(req.empresa){
+        return res.json(req.empresa);
+    }
+    next();
+};
+

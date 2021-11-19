@@ -79,6 +79,18 @@ a {
   width: 300px !important;
 }
 
+.linkedin-color {
+  color: #0A66C2 !important;
+}
+
+.fb-color {
+  color: #3B5998 !important;
+}
+
+.twitter-color {
+  color: #1DA1F2 !important;
+}
+
 /*footer*/
 
 .send-btn {
@@ -110,6 +122,25 @@ a {
   border-radius: 50rem !important;
 }
 
+/*perfil-page*/
+.img-perfil{
+  height: 180px !important;
+  width: 180px !important;
+}
+
+.icons-perfil {
+  font-size: 30px;
+}
+
+.form-group-perfil {
+  width: 60%;
+}
+
+.form-group-perfil > input[type=text]::placeholder,
+.form-group-perfil > input[type=email]::placeholder {
+  text-align: center;
+}
+
 /*responsive costumization*/
 
 @media (max-width: 1200px) {
@@ -122,6 +153,14 @@ a {
 @media (max-width: 768px) {
   .container-searching {
     border-radius: 20px !important;
+  }
+
+  .form-group-perfil {
+    width: 100%;
+  }
+
+  .w-100-sm {
+    width: 100% !important;
   }
 }
 

@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "6e6ec7e8-49f9-4cb0-8088-276e7b5f20a9",
+		"name": "mern-llamakay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro Empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Gloria\",\r\n    \"rs_empresa\":\"GLORIA S.A.\",\r\n    \"ruc_empresa\":\"12547856984\",\r\n    \"direccion_empresa\":\"Lima\",\r\n    \"nrocol_empresa\":6,\r\n    \"password\":\"gloria123\",\r\n    \"web_empresa\":\"gloria.com\",\r\n    \"correo\":\"gloria@gloria.com\",\r\n    \"cel_empresa\":953665121,\r\n    \"descripcion\":\"Llegó el lechero\",\r\n    \"pais\":\"Perú\",\r\n    \"departamento\":\"Lima\",\r\n    \"distrito\":\"San Isidro\",\r\n    \"rubro\":\"lechero\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/signupEmpresa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"signupEmpresa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro Alumno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Samuel Aaron\",\r\n    \"app_alumno\":\"Román\",\r\n    \"apm_alumno\":\"Céspedes\",\r\n    \"correo\":\"samuelaaron.roman@unmsm.edu.pe\",\r\n    \"direccion_alumno\":\"Los Olivos\",\r\n    \"cel_alumno\":953665207,\r\n    \"dni_alumno\":75419144,\r\n    \"password\":\"jeje123\",\r\n    \"descripcion\":\"Hola soy un crack\",\r\n    \"github_link\":\"github/samuelcodingg\",\r\n    \"linkedin\":\"samuel.com\",\r\n    \"universidad\":\"UNMSM\",\r\n    \"facultad\":\"FISI\",\r\n    \"escuela\":\"Software\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/signupAlumno",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"signupAlumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publicación Anuncio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nro_participantes\": 15,\r\n    \"monto_pago\":1800,\r\n    \"mes_experiencia\":0,\r\n    \"des_puesto\":\"Programador backend\",\r\n    \"fecha_inicio\": \"2021-11-21\",\r\n    \"fecha_fin\":\"2021-02-08\",\r\n    \"estado\": true,\r\n    \"cargo\":\"Programador backend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/anuncio/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"anuncio",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Anuncios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/anuncio/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"anuncio",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\":\"gloria@gloria.com\",\r\n    \"password\":\"gloria123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/signinEmpresa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"signinEmpresa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Alumno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\":\"samuelaaron.roman@unmsm.edu.pe\",\r\n    \"password\":\"jeje123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/signinAlumno",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"signinAlumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alumno por Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/alumnos/6194022a1d8f122034557dac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"alumnos",
+						"6194022a1d8f122034557dac"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empresa por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/empresas/6194022e1d8f122034557dae",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"empresas",
+						"6194022e1d8f122034557dae"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

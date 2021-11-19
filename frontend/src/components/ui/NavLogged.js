@@ -9,10 +9,10 @@ export const NavLogged = () => {
         const { alumno, empresa } = isAuthenticated();
 
         if (alumno) {
-            return alumno.nom_alumno;
+            return alumno.nombre;
         } 
         else if (empresa) {
-            return empresa.nc_empresa;
+            return empresa.nombre;
         }
     }
 
