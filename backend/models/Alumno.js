@@ -48,7 +48,6 @@ const alumnoSchema = new mongoose.Schema({
         descripcion: {
             type: String,
             trim: true,   
-            maxlength: 500  
         },
         github_link: {
             type: String,

@@ -192,6 +192,17 @@ exports.photoAlumno = (req, res, next) => {
     next();
 };
 
+exports.updateAlumno = async (req, res) => {
+    try {
+        const alumnoFounded = await Alumno.findById(req.params.alumnoId)
+        Object.assign(alumnoFounded, req.body);
+        await alumnoFounded.save();
+        res.send({data: alumnoFounded});
+    }
+    catch (err) {
+        res.status(400).send(err);
+    }
+};
 
 //para empresas
 

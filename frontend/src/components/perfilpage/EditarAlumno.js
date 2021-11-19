@@ -5,7 +5,7 @@ export const EditarAlumno = ({ datos, alumno }) => {
 
     const [datosAlumno, setDatosAlumno] = useState({
         dni: '',
-        genero: 0,
+        genero: '',
         email: '',
         celular: '',
         pais: '',
@@ -29,6 +29,7 @@ export const EditarAlumno = ({ datos, alumno }) => {
                 direccion: data.direccion_alumno
             })
             console.log(data);
+            console.log(alumno);
         })
     }
 
