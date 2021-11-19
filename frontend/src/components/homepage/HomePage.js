@@ -50,6 +50,69 @@ export const HomePage = () => {
                             <img src={imgLogo} alt="Logo" className="img-fluid" />
                         </div>
                     </div>
+
+                    <div className="row border border-dark rounded-plus shadow mt-4 pointer d-flex">
+                        <div className="col-md-10 ps-5 py-3">
+                            <h5>Por eso friki frikitona</h5>
+                            <div className="text-secondary d-flex justify-content-start align-items-center">
+                                <p className="mb-0">Gloria S.A</p>
+                                <div className="d-flex align-items-center ms-5">
+                                    <i className="fas fa-star"></i>
+                                    <p className="mb-0">&nbsp; 5.0</p>
+                                </div>
+                                <p className="mb-0 ms-5">Lima, La Molina</p>
+                            </div>
+                            <div className="text-secondary mt-2">
+                                Requisitos: Sexo: No definido - Egresado.........
+                            </div>
+                            <p className="mb-0 text-secondary mt-2">Hace 14 horas</p>
+                        </div>
+                        <div className="col-md-2 my-auto text-center text-md-start">
+                            <img src={imgLogo} alt="Logo" className="img-fluid" />
+                        </div>
+                    </div>
+
+                    <div className="row border border-dark rounded-plus shadow mt-4 pointer d-flex">
+                        <div className="col-md-10 ps-5 py-3">
+                            <h5>Por eso friki frikitona</h5>
+                            <div className="text-secondary d-flex justify-content-start align-items-center">
+                                <p className="mb-0">Gloria S.A</p>
+                                <div className="d-flex align-items-center ms-5">
+                                    <i className="fas fa-star"></i>
+                                    <p className="mb-0">&nbsp; 5.0</p>
+                                </div>
+                                <p className="mb-0 ms-5">Lima, La Molina</p>
+                            </div>
+                            <div className="text-secondary mt-2">
+                                Requisitos: Sexo: No definido - Egresado.........
+                            </div>
+                            <p className="mb-0 text-secondary mt-2">Hace 14 horas</p>
+                        </div>
+                        <div className="col-md-2 my-auto text-center text-md-start">
+                            <img src={imgLogo} alt="Logo" className="img-fluid" />
+                        </div>
+                    </div>
+
+                    <div className="row border border-dark rounded-plus shadow mt-4 pointer d-flex">
+                        <div className="col-md-10 ps-5 py-3">
+                            <h5>Por eso friki frikitona</h5>
+                            <div className="text-secondary d-flex justify-content-start align-items-center">
+                                <p className="mb-0">Gloria S.A</p>
+                                <div className="d-flex align-items-center ms-5">
+                                    <i className="fas fa-star"></i>
+                                    <p className="mb-0">&nbsp; 5.0</p>
+                                </div>
+                                <p className="mb-0 ms-5">Lima, La Molina</p>
+                            </div>
+                            <div className="text-secondary mt-2">
+                                Requisitos: Sexo: No definido - Egresado.........
+                            </div>
+                            <p className="mb-0 text-secondary mt-2">Hace 14 horas</p>
+                        </div>
+                        <div className="col-md-2 my-auto text-center text-md-start">
+                            <img src={imgLogo} alt="Logo" className="img-fluid" />
+                        </div>
+                    </div>
                 </div>
 
                 <div className="text-center d-flex justify-content-center">

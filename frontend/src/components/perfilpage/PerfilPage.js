@@ -6,6 +6,8 @@ import { Footer } from '../ui/Footer';
 import { getUser } from '../../api/user';
 import imgProfile from '../homepage/image 6.png';
 import { Link } from 'react-router-dom';
+import { InfoEmpresa } from './InfoEmpresa';
+import { InfoAlumno } from './InfoAlumno';
 
 export const PerfilPage = () => {
 
@@ -51,6 +53,19 @@ export const PerfilPage = () => {
                             <h2 className="text-center mt-4">Gloria</h2>
                         </div>
                         <div className="mt-5 d-flex flex-column">
+                            {
+                                alumno ?
+                                    <Link
+                                        to="/perfil"
+                                        className="d-flex align-items-center mt-4"
+                                    >
+                                        <i className="fab fa-github icons-perfil text-black"></i>
+                                        <h3 className="mb-0">&nbsp; GitHub</h3>
+                                    </Link>
+                                    :
+                                    ''
+                            }
+
                             <Link 
                                 to="/perfil"
                                 className="d-flex align-items-center mt-4" 
@@ -59,20 +74,29 @@ export const PerfilPage = () => {
                                 <i className="fab fa-linkedin icons-perfil linkedin-color"></i>
                                 <h3 className="mb-0">&nbsp; Linkedin</h3>
                             </Link>
-                            <Link
-                                to="/perfil"
-                                className="d-flex align-items-center mt-4"
-                            >
-                                <i className="fab fa-facebook-square icons-perfil fb-color"></i>
-                                <h3 className="mb-0">&nbsp; Facebook</h3>
-                            </Link>
-                            <Link
-                                to="/perfil"
-                                className="d-flex align-items-center mt-4"
-                            >
-                                <i className="fab fa-twitter-square icons-perfil twitter-color"></i>
-                                <h3 className="mb-0">&nbsp; Twitter</h3>
-                            </Link>
+
+                            {
+                                empresa ?
+                                <>
+                                    <Link
+                                        to="/perfil"
+                                        className="d-flex align-items-center mt-4"
+                                    >
+                                        <i className="fab fa-facebook-square icons-perfil fb-color"></i>
+                                        <h3 className="mb-0">&nbsp; Facebook</h3>
+                                    </Link>
+                                    <Link
+                                        to="/perfil"
+                                        className="d-flex align-items-center mt-4"
+                                    >
+                                        <i className="fab fa-twitter-square icons-perfil twitter-color"></i>
+                                        <h3 className="mb-0">&nbsp; Twitter</h3>
+                                    </Link>
+                                </>
+                                    :
+                                    ''
+                            }
+                            
                         </div>
                     </div>
                 
@@ -80,19 +104,7 @@ export const PerfilPage = () => {
                         <h2 className="mb-3"> Descripción { empresa ? 'empresarial' : 'profesional' } </h2>
                         <p> Pariatur id Lorem consequat sint labore dolor sit. Officia anim nisi consequat aliqua. Magna sint cillum magna laboris dolor ullamco laboris qui nulla quis ad. Incididunt ex tempor quis reprehenderit ut id. Proident eiusmod sit nostrud quis id adipisicing eiusmod eiusmod Lorem. Duis dolore sint sunt tempor minim elit. </p>
                         <div>
-                            <h2 className="text-center">Datos de la empresa</h2>   
-                            <div className="d-flex flex-column">
-                                <div className="d-flex flex-row">
-                                    <div className="d-flex flex-column">
-                                        <p className="fw-bold mt-3">RUC: </p>
-                                        <p className="fw-bold">Teléfono de contacto: </p>
-                                        <p className="fw-bold">Rubro: </p>
-                                        <p className="fw-bold">Dirección: </p>
-                                        <p className="fw-bold">Sitio web: </p>
-                                        <p className="fw-bold">Tipo de Empresa: </p>
-                                    </div>
-                                </div>
-                            </div>
+                            { empresa ? <InfoEmpresa /> : <InfoAlumno /> }
                         </div>
 
                     </div>

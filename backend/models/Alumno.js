@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const uuidv1 = require('uuid/v1');
 
 const alumnoSchema = new mongoose.Schema({
-        nom_alumno: {
+        nombre: {
             type: String,
             trim: true,
             maxlength: 50,
@@ -45,7 +45,7 @@ const alumnoSchema = new mongoose.Schema({
             required: true
         },
         salt: String,
-        descripcion_alumno: {
+        descripcion: {
             type: String,
             trim: true,   
             maxlength: 500  
@@ -74,6 +74,10 @@ const alumnoSchema = new mongoose.Schema({
             type: String,
             trim: true,   
             maxlength: 50  
+        },
+        photo: {
+            data: Buffer,
+            contentType: String
         }
     },
     {timestamps: true}
