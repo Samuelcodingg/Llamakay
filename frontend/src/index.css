@@ -158,6 +158,10 @@ a {
   .form-group-perfil {
     width: 100%;
   }
+
+  .w-100-sm {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 576px) {

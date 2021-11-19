@@ -101,7 +101,7 @@ export const PerfilPage = () => {
                     </div>
                 
                     <div className="col-md-8">
-                        <h2 className="mb-3"> Descripción { empresa ? 'empresarial' : 'profesional' } </h2>
+                        <h2 className="mb-3 mt-5 mt-md-0 text-center text-md-start"> Descripción { empresa ? 'empresarial' : 'profesional' } </h2>
                         <p> Pariatur id Lorem consequat sint labore dolor sit. Officia anim nisi consequat aliqua. Magna sint cillum magna laboris dolor ullamco laboris qui nulla quis ad. Incididunt ex tempor quis reprehenderit ut id. Proident eiusmod sit nostrud quis id adipisicing eiusmod eiusmod Lorem. Duis dolore sint sunt tempor minim elit. </p>
                         <div>
                             { empresa ? <InfoEmpresa /> : <InfoAlumno /> }
