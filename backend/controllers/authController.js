@@ -233,3 +233,14 @@ exports.photoEmpresa = (req, res, next) => {
     next();
 }
 
+exports.updateEmpresa = async (req, res) => {
+    try {
+        const empresaFounded = await Empresa.findById(req.params.empresaId)
+        Object.assign(empresaFounded, req.body);
+        await empresaFounded.save();
+        res.send({data: empresaFounded});
+    }
+    catch (err) {
+        res.status(400).send(err);
+    }
+}
