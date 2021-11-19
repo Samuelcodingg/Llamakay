@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Redirect } from 'react-router';
 import { isAuthenticated } from '../../api/auth';
 import { NavbarComponent } from '../ui/NavbarComponent';
 import { Footer } from '../ui/Footer';
-import { getUser } from '../../api/user';
 import imgProfile from '../homepage/image 6.png';
 import { Link } from 'react-router-dom';
 import { InfoEmpresa } from './InfoEmpresa';
@@ -18,16 +17,6 @@ export const PerfilPage = () => {
             return <Redirect to="/" />
         }
     }
-
-    const loadDataUser = () => {
-        getUser({alumno, empresa }).then(data => {
-            console.log(data);
-        })
-    }
-
-    useEffect(() => {
-        loadDataUser();
-    }, []);
 
     return (
      
@@ -50,13 +39,14 @@ export const PerfilPage = () => {
                                     <input type="file" className="d-none" id="file-input"/>
                                 </form>
                             </div>
-                            <h2 className="text-center mt-4">Gloria</h2>
+                            <h2 className="text-center mt-4">{ alumno ? alumno.nombre : empresa.nombre }</h2>
                         </div>
                         <div className="mt-5 d-flex flex-column">
                             {
                                 alumno ?
                                     <Link
-                                        to="/perfil"
+                                        to={{ pathname: `https://${alumno.github_link}` }}
+                                        target="_blank"
                                         className="d-flex align-items-center mt-4"
                                     >
                                         <i className="fab fa-github icons-perfil text-black"></i>
@@ -67,7 +57,8 @@ export const PerfilPage = () => {
                             }
 
                             <Link 
-                                to="/perfil"
+                                to={{ pathname: `https://${ empresa ? empresa.linkedin_link : alumno.linkedin}` }}
+                                target="_blank"
                                 className="d-flex align-items-center mt-4" 
                                 
                             >
@@ -102,9 +93,9 @@ export const PerfilPage = () => {
                 
                     <div className="col-md-8">
                         <h2 className="mb-3 mt-5 mt-md-0 text-center text-md-start"> Descripción { empresa ? 'empresarial' : 'profesional' } </h2>
-                        <p> Pariatur id Lorem consequat sint labore dolor sit. Officia anim nisi consequat aliqua. Magna sint cillum magna laboris dolor ullamco laboris qui nulla quis ad. Incididunt ex tempor quis reprehenderit ut id. Proident eiusmod sit nostrud quis id adipisicing eiusmod eiusmod Lorem. Duis dolore sint sunt tempor minim elit. </p>
+                        <p> { alumno ? alumno.descripcion : empresa.descripcion } </p>
                         <div>
-                            { empresa ? <InfoEmpresa /> : <InfoAlumno /> }
+                            { empresa ? <InfoEmpresa empresa={empresa}/> : <InfoAlumno alumno={alumno} /> }
                         </div>
 
                     </div>

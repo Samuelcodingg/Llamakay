@@ -83,8 +83,9 @@ exports.signinAlumno = (req, res) => {
             expiresIn: '1d'
         });
         res.cookie('t', token, { expire: new Date() + 9999 });
-        const { _id, nombre, correo } = alumno;
-        return res.json({ token, alumno: { _id, nombre, correo } });
+        let { _id, nombre, correo, app_alumno, apm_alumno, descripcion, linkedin, github_link } = alumno;
+        nombre = nombre + ' ' + app_alumno + ' ' + apm_alumno;
+        return res.json({ token, alumno: { _id, nombre, correo, descripcion, linkedin, github_link } });
     });
 }
 

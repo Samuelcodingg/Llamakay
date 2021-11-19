@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { EditarAlumno } from './EditarAlumno';
 
-export const InfoAlumno = () => {
+export const InfoAlumno = ({alumno}) => {
 
     const [datos, setDatos] = useState(0);
 
@@ -22,7 +22,7 @@ export const InfoAlumno = () => {
                 </div>
             </div>
 
-            <EditarAlumno datos={datos} />
+            <EditarAlumno datos={datos} alumno={alumno} />
         </>
     )
 }
