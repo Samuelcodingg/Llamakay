@@ -3,7 +3,6 @@ const Alumno = require('../models/Alumno');
 const jwt = require('jsonwebtoken');
 
 exports.signupEmpresa = (req, res) => {
-    console.log('req.body', req.body);
     const empresa = new Empresa(req.body);
     empresa.save((error, empresa) => {
         console.log('Reached signup endpoint');
@@ -59,8 +58,8 @@ exports.signinEmpresa = (req, res) => {
             expiresIn: '1d'
         });
         res.cookie('t', token, { expire: new Date() + 9999 });
-        const { _id, nombre, correo } = empresa;
-        return res.json({ token, empresa: { _id, nombre, correo } });
+        const { _id, nombre, correo, descripcion, linkedin, facebook, twitter } = empresa;
+        return res.json({ token, empresa: { _id, nombre, correo, descripcion, linkedin, facebook, twitter } });
     });
 }
 

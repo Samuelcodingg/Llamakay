@@ -78,6 +78,26 @@ const alumnoSchema = new mongoose.Schema({
         photo: {
             data: Buffer,
             contentType: String
+        },
+        genero: {
+            type: Number,
+            trim: true,
+            maxlength: 1
+        },
+        pais: {
+            type: String,
+            trim: true,
+            maxlength: 50
+        },
+        departamento: {
+            type: String,
+            trim: true,
+            maxlength: 50
+        },
+        distrito: {
+            type: String,
+            trim: true,
+            maxlength: 50
         }
     },
     {timestamps: true}

@@ -5,7 +5,7 @@ export const EditarAlumno = ({ datos, alumno }) => {
 
     const [datosAlumno, setDatosAlumno] = useState({
         dni: '',
-        genero: '',
+        genero: 0,
         email: '',
         celular: '',
         pais: '',
@@ -28,6 +28,7 @@ export const EditarAlumno = ({ datos, alumno }) => {
                 distrito: data.distrito,
                 direccion: data.direccion_alumno
             })
+            console.log(data);
         })
     }
 
@@ -59,13 +60,13 @@ export const EditarAlumno = ({ datos, alumno }) => {
                         <label htmlFor="genero" className="mb-0 w-50">Género</label>
                         <div className="d-flex flex-column form-control border-0 ps-0">
                             <div className="form-check form-check-inline ps-0 ">
-                                <input type="checkbox" name="genero" value="Masculino" /><label>&nbsp; Masculino</label><br />
+                                <input type="checkbox" name="genero" value="0" defaultChecked={ genero === 0 ? true : false } /><label>&nbsp; Masculino</label><br />
                             </div>
                             <div className="form-check form-check-inline ps-0">
-                                <input type="checkbox" name="genero" value="Femenino" /><label>&nbsp; Femenino</label><br />
+                                <input type="checkbox" name="genero" value="1" defaultChecked={ genero === 1 ? true : false } /><label>&nbsp; Femenino</label><br />
                             </div>
                             <div className="form-check form-check-inline ps-0">
-                                <input type="checkbox" name="genero" value="Otro" /><label>&nbsp; Prefiero no decirlo</label><br />
+                                <input type="checkbox" name="genero" value="2" defaultChecked={ genero === 2 ? true : false } /><label>&nbsp; Prefiero no decirlo</label><br />
                             </div>
                         </div>
                     </div>
