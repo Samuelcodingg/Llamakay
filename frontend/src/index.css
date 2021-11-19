@@ -132,6 +132,15 @@ a {
   font-size: 30px;
 }
 
+.form-group-perfil {
+  width: 60%;
+}
+
+.form-group-perfil > input[type=text]::placeholder,
+.form-group-perfil > input[type=email]::placeholder {
+  text-align: center;
+}
+
 /*responsive costumization*/
 
 @media (max-width: 1200px) {
@@ -144,6 +153,10 @@ a {
 @media (max-width: 768px) {
   .container-searching {
     border-radius: 20px !important;
+  }
+
+  .form-group-perfil {
+    width: 100%;
   }
 }
 
