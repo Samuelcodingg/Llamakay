@@ -28,8 +28,8 @@ router.get('/alumnos/:alumnoId', getAlumnoById);
 router.get('/empresas/:empresaId', getEmpresaById);
 router.get('/empresas/photo/:empresaId', photoEmpresa);
 router.get('/alumnos/photo/:alumnoId', photoAlumno);
-router.patch('/alumnos/:alumnoId', updateAlumno);
-router.patch('/empresas/:empresaId', updateEmpresa);
+router.put('/alumnos/:alumnoId', updateAlumno);
+router.put('/empresas/:empresaId', updateEmpresa);
 
 router.param('empresaId', empresaById);
 router.param('alumnoId', alumnoById);

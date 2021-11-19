@@ -18,3 +18,15 @@ export const getUser = async (user) => {
     const data = await response.json();
     return data;
 }
+
+export const editEmpresa = async (user) => {
+    const response = await fetch(`${API}/auth/empresas/${user._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+    const data = await response.json();
+    return data;
+}
