@@ -79,6 +79,10 @@ const empresaSchema = new mongoose.Schema({
         type: String,
         trim: true,
         maxlength: 50,
+    },
+    photo: {
+        data: Buffer,
+        contentType: String
     }
 },
     {timestamps: true}

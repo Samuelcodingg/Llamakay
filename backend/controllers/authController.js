@@ -109,3 +109,25 @@ exports.getAlumnoById = (req, res, next) => {
     }
     next();
 };
+
+//para empresas
+
+exports.empresaById = (req, res, next, id) => {
+    Empresa.findById(id).exec((err, empresa) => {
+        if (err || !empresa) {
+            return res.status(400).json({
+                error: 'Empresa no encontrada'
+            });
+        }
+        req.empresa = empresa;
+        next();
+    });
+};
+
+exports.getEmpresaById = (req, res, next) => {
+    if(req.empresa){
+        return res.json(req.empresa);
+    }
+    next();
+};
+

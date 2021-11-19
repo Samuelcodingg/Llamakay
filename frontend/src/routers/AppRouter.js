@@ -4,14 +4,11 @@ import {
     Switch,
     Route
 } from 'react-router-dom';
-import { isAuthenticated } from '../api/auth';
 import { AuthenticationPage } from '../components/authenticationpage/AuthenticationPage';
 import { HomePage } from '../components/homepage/HomePage';
 import { PerfilPage } from '../components/perfilpage/PerfilPage';
 
 export const AppRouter = () => {
-    
-    const { token } = isAuthenticated();
     
     return (
         <Router>

@@ -79,6 +79,18 @@ a {
   width: 300px !important;
 }
 
+.linkedin-color {
+  color: #0A66C2 !important;
+}
+
+.fb-color {
+  color: #3B5998 !important;
+}
+
+.twitter-color {
+  color: #1DA1F2 !important;
+}
+
 /*footer*/
 
 .send-btn {
@@ -108,6 +120,16 @@ a {
 
 .rounded-form {
   border-radius: 50rem !important;
+}
+
+/*perfil-page*/
+.img-perfil{
+  height: 180px !important;
+  width: 180px !important;
+}
+
+.icons-perfil {
+  font-size: 30px;
 }
 
 /*responsive costumization*/

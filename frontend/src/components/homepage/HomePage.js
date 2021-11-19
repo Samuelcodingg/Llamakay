@@ -23,7 +23,7 @@ export const HomePage = () => {
                             <input type="text" className="form-control fontAwesome border-0 remove-focus lugar-input" placeholder="&#xf3c5; Lugar" />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="form-control bg-oscuro border-0 text-white rounded-pill just-left-border px-3"><i class="fas fa-search"></i> Buscar Empleos</button>
+                            <button type="submit" className="form-control bg-oscuro border-0 text-white rounded-pill just-left-border px-3"><i className="fas fa-search"></i> Buscar Empleos</button>
                         </div>
                     </form>
                 </div>
@@ -36,7 +36,7 @@ export const HomePage = () => {
                             <div className="text-secondary d-flex justify-content-start align-items-center">
                                 <p className="mb-0">Gloria S.A</p>
                                 <div className="d-flex align-items-center ms-5">
-                                    <i class="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
                                     <p className="mb-0">&nbsp; 5.0</p>
                                 </div>
                                 <p className="mb-0 ms-5">Lima, La Molina</p>
