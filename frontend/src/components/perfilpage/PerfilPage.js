@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Redirect } from 'react-router';
 import { isAuthenticated } from '../../api/auth';
 import { NavbarComponent } from '../ui/NavbarComponent';
 import { Footer } from '../ui/Footer';
-import imgProfile from '../homepage/image 6.png';
+import defaultImage from './default-profile.png'
 import { Link } from 'react-router-dom';
 import { InfoEmpresa } from './InfoEmpresa';
 import { InfoAlumno } from './InfoAlumno';
+import { API } from '../../config';
 
 export const PerfilPage = () => {
 
     const { token, alumno, empresa } = isAuthenticated();
+
+    const imgRef = useRef();
+
+    const onImageError = () => imgRef.current.src = defaultImage;
 
     const redirectUser = () => {
         if (!token) {
@@ -28,7 +33,12 @@ export const PerfilPage = () => {
                     <div className="col-md-4">
                         <div>
                             <div className="d-flex flex-column text-center">
-                                <img src={imgProfile} className="img-perfil rounded-circle mx-auto" alt="Responsive image" />
+                                <img 
+                                    ref={imgRef}
+                                    src={ `${API}/auth/${empresa ? 'empresas' : 'alumnos'}/photo/${empresa ? empresa._id : alumno._id}`}  
+                                    className="img-perfil rounded-circle mx-auto" alt="Responsive image"
+                                    onError={onImageError}
+                                />
                                 
                                 <form className="img-upload d-flex justify-content-end me-5">
                                     <label htmlFor="file-input" className="d-flex align-self-end pointer">
