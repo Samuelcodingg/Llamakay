@@ -30,3 +30,15 @@ export const editEmpresa = async (user) => {
     const data = await response.json();
     return data;
 }
+
+export const updatePhotoEmpresa = async (photo) => {
+    const response = await fetch(`${API}/auth/empresas/updatePhotoEmpresa/${photo._id}`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'multipart/form-data',
+        },
+        body: JSON.stringify(photo)
+    });
+    return response.json();
+};

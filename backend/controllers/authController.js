@@ -243,4 +243,25 @@ exports.updateEmpresa = async (req, res) => {
     catch (err) {
         res.status(400).send(err);
     }
-}
+};
+
+exports.updatePhotoEmpresa = async (req, res) => {
+    let form = new formidable.IncomingForm();
+
+    form.keepExtensions = true;
+    form.parse(req, async (err, fields, files) => {
+        if (err) {
+            return res.status(400).json({
+                error: 'Photo could not be uploaded'
+            });
+        }
+        const empresaFounded = await Empresa.findById(req.params.empresaId)
+        Object.assign(empresaFounded, fields);
+        empresaFounded.photo.data = fs.readFileSync(files.photo.filepath);
+        empresaFounded.photo.contentType = files.photo.type;
+        await empresaFounded.save();
+        res.json(empresaFounded);
+    }
+    );
+};
+
