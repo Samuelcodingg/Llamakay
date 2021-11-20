@@ -6,13 +6,79 @@
 	},
 	"item": [
 		{
-			"name": "Registro Empresa",
+			"name": "Registro Empresa con Postman",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"Gloria\",\r\n    \"rs_empresa\":\"GLORIA S.A.\",\r\n    \"ruc_empresa\":\"12547856984\",\r\n    \"direccion_empresa\":\"Lima\",\r\n    \"nrocol_empresa\":6,\r\n    \"password\":\"gloria123\",\r\n    \"web_empresa\":\"gloria.com\",\r\n    \"correo\":\"gloria@gloria.com\",\r\n    \"cel_empresa\":953665121,\r\n    \"descripcion\":\"Llegó el lechero\",\r\n    \"pais\":\"Perú\",\r\n    \"departamento\":\"Lima\",\r\n    \"distrito\":\"San Isidro\",\r\n    \"rubro\":\"lechero\"\r\n}",
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Gloria",
+							"type": "text"
+						},
+						{
+							"key": "rs_empresa",
+							"value": "GLORIA S.A.",
+							"type": "text"
+						},
+						{
+							"key": "ruc_empresa",
+							"value": "1234567898",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "gloria123",
+							"type": "text"
+						},
+						{
+							"key": "web_empresa",
+							"value": "gloria.com",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "gloria@gloria.com",
+							"type": "text"
+						},
+						{
+							"key": "cel_empresa",
+							"value": "956665203",
+							"type": "text"
+						},
+						{
+							"key": "descripcion",
+							"value": "llegó el lechero",
+							"type": "text"
+						},
+						{
+							"key": "pais",
+							"value": "Perú",
+							"type": "text"
+						},
+						{
+							"key": "departamento",
+							"value": "Lima",
+							"type": "text"
+						},
+						{
+							"key": "distrito",
+							"value": "San Isidro",
+							"type": "text"
+						},
+						{
+							"key": "rubro",
+							"value": "lecheroxd",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/D:/Samuel/Universidad/7mo Ciclo/Métodos Formales para Pruebas/Llamakay/frontend/src/components/homepage/image 6.png"
+						}
+					],
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,7 +86,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/auth/signupEmpresa",
+					"raw": "http://localhost:5000/api/auth/signupEmpresaWithPostman",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,7 +95,7 @@
 					"path": [
 						"api",
 						"auth",
-						"signupEmpresa"
+						"signupEmpresaWithPostman"
 					]
 				}
 			},
@@ -204,7 +270,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/auth/empresas/6194022e1d8f122034557dae",
+					"raw": "http://localhost:5000/api/auth/empresas/6197edbdea88efffc1637f08",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -214,7 +280,266 @@
 						"api",
 						"auth",
 						"empresas",
-						"6194022e1d8f122034557dae"
+						"6197edbdea88efffc1637f08"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Foto de empresa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/empresas/photo/6197edbdea88efffc1637f08",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"empresas",
+						"photo",
+						"6197edbdea88efffc1637f08"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro Alumno con Postman",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Samuel ",
+							"type": "text"
+						},
+						{
+							"key": "app_alumno",
+							"value": "Román",
+							"type": "text"
+						},
+						{
+							"key": "apm_alumno",
+							"value": "Céspedes",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "samuelaaron.roman@unmsm.edu.pe",
+							"type": "text"
+						},
+						{
+							"key": "direccion_alumno",
+							"value": "Barranca 3933",
+							"type": "text"
+						},
+						{
+							"key": "cel_alumno",
+							"value": "953665207",
+							"type": "text"
+						},
+						{
+							"key": "dni_alumno",
+							"value": "75419144",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "jeje123",
+							"type": "text"
+						},
+						{
+							"key": "descripcion",
+							"value": "Hola, soy un crack",
+							"type": "text"
+						},
+						{
+							"key": "github_link",
+							"value": "github.com/samuelcodingg",
+							"type": "text"
+						},
+						{
+							"key": "linkedin",
+							"value": "linkedin.com/in/samuel-aarón-román-céspedes-21440512a/",
+							"type": "text"
+						},
+						{
+							"key": "universidad",
+							"value": "UNMSM",
+							"type": "text"
+						},
+						{
+							"key": "facultad",
+							"value": "FISI",
+							"type": "text"
+						},
+						{
+							"key": "escuela",
+							"value": "Software",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/D:/Samuel/Foto-perfilxd.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/signupAlumnoWithPostman",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"signupAlumnoWithPostman"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Alumno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"direccion_alumno\":\"Barranca 3655\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/alumnos/61980907ab657f258a638b12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"alumnos",
+						"61980907ab657f258a638b12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Empresa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"direccion_empresa\":\"Javier Prado 126\",\r\n    \"descripcion\":\"Nulla varius faucibus mauris, non ultrices est scelerisque bibendum. Donec turpis justo, molestie sed urna laoreet, mattis scelerisque lectus. Vivamus ultrices bibendum lectus. Praesent tempor dolor elit, sit amet lobortis tortor maximus in. Vestibulum blandit tincidunt dolor, a varius magna placerat vehicula. Vivamus dictum consequat urna eu dignissim. Nam vitae ullamcorper velit. Etiam faucibus mollis tincidunt. Fusce lacus lorem, pretium vel efficitur vitae, lacinia congue neque. Phasellus bibendum ex eget sem gravida viverra. Aenean pulvinar blandit facilisis. Quisque eu sagittis augue. Sed accumsan, eros nec commodo volutpat, metus tellus varius lacus, sit amet sagittis mi lectus eu orci. Nunc in tincidunt neque. Morbi dolor lorem, dignissim et ex id, consequat tristique nisl.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/empresas/6197edbdea88efffc1637f08",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"empresas",
+						"6197edbdea88efffc1637f08"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Foto Empresa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/Samue/Downloads/image 9.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/empresas/photo/619821adcce9c8c1a756e1b5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"empresas",
+						"photo",
+						"619821adcce9c8c1a756e1b5"
+					],
+					"query": [
+						{
+							"key": "photo",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Foto Alumno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/D:/Samuel/Foto-perfilxd.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/alumnos/photo/61980907ab657f258a638b12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"alumnos",
+						"photo",
+						"61980907ab657f258a638b12"
 					]
 				}
 			},
