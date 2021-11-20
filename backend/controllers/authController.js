@@ -251,7 +251,9 @@ exports.updatePhotoEmpresa = async (req, res) => {
     let form = new formidable.IncomingForm();
 
     form.keepExtensions = true;
+
     form.parse(req, async (err, fields, files) => {
+        console.log(err);
         if (err) {
             return res.status(400).json({
                 error: 'Photo could not be uploaded'
