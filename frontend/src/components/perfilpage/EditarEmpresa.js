@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { editEmpresa, getUser } from '../../api/user';
+import Swal from 'sweetalert2';
 
 export const EditarEmpresa = ({empresa}) => {
 
@@ -50,7 +51,11 @@ export const EditarEmpresa = ({empresa}) => {
                 }
                 else{
                     console.log(data);
-                    alert('Datos actualizados!');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Datos actualizados!',
+                        text: 'Los datos de tu empresa han sido actualizados',
+                    })
                 }
             })
 

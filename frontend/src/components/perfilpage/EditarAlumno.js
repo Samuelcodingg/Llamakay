@@ -52,8 +52,11 @@ export const EditarAlumno = ({ datos, alumno }) => {
                 if (data.error) {
                     console.log(data.error);
                 } else {
-                    console.log(data);
-                    alert('Datos actualizados');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Datos actualizados',
+                        text: 'Los datos se han actualizado correctamente',
+                    })
                 }
             }
             )

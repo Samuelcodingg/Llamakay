@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { authenticate, isAuthenticated, signin } from '../../api/auth';
 import logo from '../ui/Logo.png';
+import Swal from 'sweetalert2';
 
 
 export const LoginForm = () => {
@@ -26,9 +27,13 @@ export const LoginForm = () => {
         console.log('values', values);
 
         if(correo === '' || password === '') {
-            alert('Todos los campos son obligatorios');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, llena todos los campos',
+            })
             return;
-        }
+        } 
 
         setValues(values);
         signin({ correo, password, tipo_usuario })
