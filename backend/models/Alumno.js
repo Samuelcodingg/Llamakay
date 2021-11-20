@@ -98,6 +98,18 @@ const alumnoSchema = new mongoose.Schema({
             type: String,
             trim: true,
             maxlength: 50
+        },
+        formacion: {
+            type: Array,
+            default: [],
+        },
+        idiomas: {
+            type: Array,
+            default: [],
+        },
+        conocimientos: {
+            type: Array,
+            default: [],
         }
     },
     {timestamps: true}

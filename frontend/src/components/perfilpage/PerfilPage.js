@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { Redirect } from 'react-router';
 import { isAuthenticated } from '../../api/auth';
 import { NavbarComponent } from '../ui/NavbarComponent';
@@ -9,7 +9,6 @@ import { InfoEmpresa } from './InfoEmpresa';
 import { InfoAlumno } from './InfoAlumno';
 import { API } from '../../config';
 import axios from 'axios';
-import { updatePhotoEmpresa } from '../../api/user';
 
 export const PerfilPage = () => {
 
