@@ -18,3 +18,39 @@ export const getUser = async (user) => {
     const data = await response.json();
     return data;
 }
+
+export const editEmpresa = async (user) => {
+    const response = await fetch(`${API}/auth/empresas/${user._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+    const data = await response.json();
+    return data;
+}
+
+export const updatePhotoEmpresa = async (photo) => {
+    const response = await fetch(`${API}/auth/empresas/updatePhotoEmpresa/${photo._id}`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'multipart/form-data',
+        },
+        body: JSON.stringify(photo)
+    });
+    return response.json();
+};
+
+export const editAlumno = async (user) => {
+    const response = await fetch(`${API}/auth/alumnos/${user._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+    const data = await response.json();
+    return data;
+}

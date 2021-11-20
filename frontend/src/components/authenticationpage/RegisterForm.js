@@ -21,7 +21,7 @@ export const RegisterForm = () => {
 
     const redirectUser = () => {
         if (redirecToReferrer || token ) {
-            return <Redirect to='/' />
+            return <Redirect to='/authentication/login' />
         }
     }
 
@@ -103,6 +103,7 @@ export const RegisterForm = () => {
                                 type="email" 
                                 className="form-control remove-focus just-bottom-border" 
                                 placeholder="Email" 
+                                name="correo"
                                 value={correo}
                             />
                         </div>
@@ -111,6 +112,7 @@ export const RegisterForm = () => {
                                 className="form-control remove-focus just-bottom-border text-secondary"
                                 onChange={handleChange('tipo_usuario')}
                                 value={tipo_usuario}
+                                name="tipo_usuario"
                             >
                                 <option value="">Seleccione su tipo de usuario</option>
                                 <option value="1" >Empresa</option>
@@ -123,7 +125,8 @@ export const RegisterForm = () => {
                                 type="password" 
                                 placeholder="Contraseña" 
                                 className="form-control remove-focus just-bottom-border" 
-                                value={password}    
+                                value={password}  
+                                name="password"  
                             />
                         </div>
                         <div className="form-group mt-4">

@@ -21,7 +21,6 @@ const empresaSchema = new mongoose.Schema({
     direccion_empresa: {
         type: String,
         trim: true,
-        maxlength: 11,
     },
     nrocol_empresa: {
         type: Number,
@@ -53,7 +52,6 @@ const empresaSchema = new mongoose.Schema({
     descripcion: {
         type: String,
         trim: true,   
-        maxlength: 500   
     },
     pais: {
         type: String,
