@@ -42,3 +42,15 @@ export const updatePhotoEmpresa = async (photo) => {
     });
     return response.json();
 };
+
+export const editAlumno = async (user) => {
+    const response = await fetch(`${API}/auth/alumnos/${user._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+    const data = await response.json();
+    return data;
+}

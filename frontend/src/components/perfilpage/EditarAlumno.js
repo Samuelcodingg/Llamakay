@@ -1,40 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import { getUser } from '../../api/user';
+import { editAlumno, getUser } from '../../api/user';
 
 export const EditarAlumno = ({ datos, alumno }) => {
 
     const [datosAlumno, setDatosAlumno] = useState({
-        dni: '',
+        _id: '',
+        dni_alumno: '',
         genero: '',
-        email: '',
-        celular: '',
+        correo: '',
+        cel_alumno: '',
         pais: '',
         departamento: '',
         distrito: '',
-        direccion: ''
+        direccion_alumno: ''
     })
 
-    const {  dni, genero, email, celular, pais, departamento, distrito, direccion } = datosAlumno;
+    const {  dni_alumno, genero, correo, cel_alumno, pais, departamento, distrito, direccion_alumno } = datosAlumno;
 
     const loadDataUser = () => {
         getUser({ alumno }).then(data => {
             setDatosAlumno({
-                dni: data.dni_alumno,
+                _id: data._id,
+                dni_alumno: data.dni_alumno,
                 genero: data.genero,
-                email: data.correo,
-                celular: data.cel_alumno,
+                correo: data.correo,
+                cel_alumno: data.cel_alumno,
                 pais: data.pais,
                 departamento: data.departamento,
                 distrito: data.distrito,
-                direccion: data.direccion_alumno
+                direccion_alumno: data.direccion_alumno
             })
-            console.log(data);
-            console.log(alumno);
         })
     }
 
     const handleChange = name => event => {
         setDatosAlumno({ ...datosAlumno, [name]: event.target.value });
+    }
+
+    const clickSubmit = event => {
+        event.preventDefault();
+        editAlumno(datosAlumno)
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    console.log(data);
+                    alert('Datos actualizados');
+                }
+            }
+            )
     }
 
     useEffect(() => {
@@ -47,14 +61,14 @@ export const EditarAlumno = ({ datos, alumno }) => {
             {datos === 0 ?
                 <>
                     <div className="form-group form-group-perfil d-flex align-items-center">
-                        <label htmlFor="dni" className="mb-0 w-50">DNI</label>
+                        <label htmlFor="dni_alumno" className="mb-0 w-50">DNI</label>
                         <input 
                             type="text" 
                             className="form-control just-bottom-border remove-focus" 
-                            id="dni" 
+                            id="dni_alumno" 
                             placeholder="DNI" 
-                            value={dni}
-                            onChange={handleChange('dni')}
+                            value={dni_alumno}
+                            onChange={handleChange('dni_alumno')}
                         />
                     </div>
                     <div className="form-group form-group-perfil d-flex align-items-center mt-3">
@@ -72,25 +86,25 @@ export const EditarAlumno = ({ datos, alumno }) => {
                         </div>
                     </div>
                     <div className="form-group form-group-perfil d-flex align-items-center mt-3">
-                        <label htmlFor="email" className="mb-0 w-50">Email</label>
+                        <label htmlFor="correo" className="mb-0 w-50">Email</label>
                         <input 
                             type="email" 
                             className="form-control just-bottom-border remove-focus" 
-                            id="email" 
+                            id="correo" 
                             placeholder="Email" 
-                            value={email}
-                            onChange={handleChange('email')}
+                            value={correo}
+                            onChange={handleChange('correo')}
                         />
                     </div>
                     <div className="form-group form-group-perfil d-flex align-items-center mt-3">
-                        <label htmlFor="celular" className="mb-0 w-50">Celular</label>
+                        <label htmlFor="cel_alumno" className="mb-0 w-50">Celular</label>
                         <input 
                             type="text" 
                             className="form-control just-bottom-border remove-focus" 
-                            id="celular" 
+                            id="cel_alumno" 
                             placeholder="Celular" 
-                            value={celular}
-                            onChange={handleChange('celular')}
+                            value={cel_alumno}
+                            onChange={handleChange('cel_alumno')}
                         />
                     </div>
                     <div className="form-group form-group-perfil d-flex align-items-center mt-3">
@@ -127,14 +141,14 @@ export const EditarAlumno = ({ datos, alumno }) => {
                         />
                     </div>
                     <div className="form-group form-group-perfil d-flex align-items-center mt-3">
-                        <label htmlFor="direccion" className="mb-0 w-50">Dirección</label>
+                        <label htmlFor="direccion_alumno" className="mb-0 w-50">Dirección</label>
                         <input 
                             type="text" 
                             className="form-control just-bottom-border remove-focus" 
-                            id="direccion" 
+                            id="direccion_alumno" 
                             placeholder="Dirección" 
-                            value={direccion}
-                            onChange={handleChange('direccion')}
+                            value={direccion_alumno}
+                            onChange={handleChange('direccion_alumno')}
                         />
                     </div>
 
@@ -149,6 +163,7 @@ export const EditarAlumno = ({ datos, alumno }) => {
                 <button
                     type="submit"
                     className="rounded-pill text-white px-5 fs-4 py-2 bg-oscuro shadow"
+                    onClick={clickSubmit}
                 >
                     Editar información
                 </button>
