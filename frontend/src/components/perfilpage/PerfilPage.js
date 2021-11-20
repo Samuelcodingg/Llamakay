@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { Redirect } from 'react-router';
 import { isAuthenticated } from '../../api/auth';
 import { NavbarComponent } from '../ui/NavbarComponent';
@@ -9,7 +9,6 @@ import { InfoEmpresa } from './InfoEmpresa';
 import { InfoAlumno } from './InfoAlumno';
 import { API } from '../../config';
 import axios from 'axios';
-import { updatePhotoEmpresa } from '../../api/user';
 
 export const PerfilPage = () => {
 
@@ -109,7 +108,7 @@ export const PerfilPage = () => {
                             }
 
                             <Link 
-                                to={{ pathname: `https://${ empresa ? empresa.linkedin_link : alumno.linkedin}` }}
+                                to={{ pathname: `https://${ empresa ? empresa.linkedin : alumno.linkedin}` }}
                                 target="_blank"
                                 className="d-flex align-items-center mt-4" 
                                 
@@ -122,14 +121,16 @@ export const PerfilPage = () => {
                                 empresa ?
                                 <>
                                     <Link
-                                        to="/perfil"
+                                        to={{ pathname: `http://${empresa.facebook}` }}
+                                        target="_blank"
                                         className="d-flex align-items-center mt-4"
                                     >
                                         <i className="fab fa-facebook-square icons-perfil fb-color"></i>
                                         <h3 className="mb-0">&nbsp; Facebook</h3>
                                     </Link>
                                     <Link
-                                        to="/perfil"
+                                        to={{  pathname: `http://${empresa.twitter}` }}
+                                        target="_blank"
                                         className="d-flex align-items-center mt-4"
                                     >
                                         <i className="fab fa-twitter-square icons-perfil twitter-color"></i>
