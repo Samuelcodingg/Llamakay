@@ -40,7 +40,11 @@ export const EditarEmpresa = ({empresa}) => {
         event.preventDefault();
 
         if(ruc_empresa === '' || cel_empresa === '' || rubro === '' || direccion_empresa === '' || web_empresa === ''){
-            alert('Todos los campos son obligatorios');
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Por favor, llene todos los campos',
+            })
             return;
         }
 

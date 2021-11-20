@@ -42,7 +42,11 @@ export const LoginForm = () => {
                 if (data.error) {
                     console.log('data.error', data.error);
                     if(redirectToReferrer === false){
-                        alert('Usuario o contraseña incorrectos');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Usuario o contraseña incorrecto',
+                        })
                     }            
                 } else {
                     authenticate(data, () => {

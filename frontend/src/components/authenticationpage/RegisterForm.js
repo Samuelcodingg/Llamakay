@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import Swal from 'sweetalert2';
 import { authenticate, isAuthenticated, signup } from '../../api/auth';
 
 export const RegisterForm = () => {
@@ -30,19 +31,32 @@ export const RegisterForm = () => {
         setValues(values);
 
         if(correo === '' || password === '' || tipo_usuario === ''){
-            alert('Todos los campos son obligatorios')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, llena todos los campos',
+            })
+
             return;
         }
 
         if(password.length < 6){
-            alert('El password debe tener al menos 6 caracteres')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El password debe tener al menos 6 caracteres',
+            })
             return;
         }
 
         signup({ correo, password, tipo_usuario })
             .then(data => {
                 if (data.error) {
-                    alert(data.error)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Algo ha ocurrido mal',
+                    })
                 } 
                 else {
                     authenticate(data, () => {
