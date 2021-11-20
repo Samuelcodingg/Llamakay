@@ -204,6 +204,8 @@ exports.updateAlumno = async (req, res) => {
     }
 };
 
+
+
 //para empresas
 
 exports.empresaById = (req, res, next, id) => {
@@ -265,3 +267,28 @@ exports.updatePhotoEmpresa = async (req, res) => {
     );
 };
 
+
+exports.updatePhotoAlumno = (req, res) => {
+    let form = new formidable.IncomingForm();
+    form.keepExtensions = true;
+
+    form.parse(req, (err, fields, files) => {
+        if (err) {
+            return res.status(400).json({
+                error: 'Error al subir la imagen'
+            });
+        }
+        Alumno.findById(req.params.alumnoId)
+            .exec((err, alumno) => {
+                if (err) {
+                    return res.status(400).json({
+                        error: 'Error al subir la imagen'
+                    });
+                }
+                alumno.photo.data = fs.readFileSync(files.photo.filepath);
+                alumno.photo.contentType = files.photo.type;
+                alumno.save();
+                return res.json(alumno);
+            });
+    });
+};

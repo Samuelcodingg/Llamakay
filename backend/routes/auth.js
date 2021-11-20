@@ -16,7 +16,8 @@ const {
     photoAlumno,
     updateAlumno,
     updateEmpresa,
-    updatePhotoEmpresa
+    updatePhotoEmpresa,
+    updatePhotoAlumno
 } = require('../controllers/authController');
 
 router.post('/signupEmpresaWithPostman', signupEmpresaWithPostman);
@@ -30,6 +31,7 @@ router.get('/empresas/:empresaId', getEmpresaById);
 router.get('/empresas/photo/:empresaId', photoEmpresa);
 router.get('/alumnos/photo/:alumnoId', photoAlumno);
 router.put('/alumnos/:alumnoId', updateAlumno);
+router.put('/alumnos/photo/:alumnoId', updatePhotoAlumno);
 router.put('/empresas/:empresaId', updateEmpresa);
 router.put('/empresas/photo/:empresaId', updatePhotoEmpresa);
 
