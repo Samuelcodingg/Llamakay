@@ -4,6 +4,16 @@ import Swal from 'sweetalert2';
 
 export const EditarAlumno = ({ datos, alumno }) => {
 
+    const opciones = [
+        { name: 'Masculino'},
+        { name: 'Femenino'},
+        { name: 'Prefiero no decirlo' }
+    ];
+
+    const [checkedState, setCheckedState] = useState(
+        new Array(opciones.length).fill(false)
+    );
+
     const [datosAlumno, setDatosAlumno] = useState({
         _id: '',
         dni_alumno: '',
@@ -16,10 +26,10 @@ export const EditarAlumno = ({ datos, alumno }) => {
         direccion_alumno: '',
         formacion: [],
         idiomas: [],
-        conocimientos: []
+        conocimientos: [],
     })
 
-    const { dni_alumno, genero, correo, conocimientos, cel_alumno, pais, departamento, formacion, idiomas, distrito, direccion_alumno } = datosAlumno;
+    const { dni_alumno, correo, conocimientos, cel_alumno, pais, departamento, formacion, idiomas, distrito, direccion_alumno } = datosAlumno;
 
     const loadDataUser = () => {
         getUser({ alumno }).then(data => {
@@ -37,12 +47,31 @@ export const EditarAlumno = ({ datos, alumno }) => {
                 idiomas: data.idiomas,
                 conocimientos: data.conocimientos
             })
-            console.log(data);
+            //set true in the position genero of the array opciones
+            setCheckedState(
+                new Array(opciones.length).fill(false).map((x, i) => {
+                    if (i === data.genero) {
+                        return true;
+                    }
+                    return false;
+                })
+            );
         })
     }
 
     const handleChange = name => event => {
         setDatosAlumno({ ...datosAlumno, [name]: event.target.value });
+    }
+
+    const handleCheckChange = (position) => {
+        const updatedCheckedState = checkedState.map((item, index) => 
+            (index === position) ? !item : item
+        )
+
+        setCheckedState(updatedCheckedState);
+
+        setDatosAlumno({ ...datosAlumno, genero: position });
+        console.log(datosAlumno);
     }
 
     const clickSubmit = event => {
@@ -361,15 +390,21 @@ export const EditarAlumno = ({ datos, alumno }) => {
                     <div className="form-group form-group-perfil d-flex align-items-center mt-3">
                         <label htmlFor="genero" className="mb-0 w-50">Género</label>
                         <div className="d-flex flex-column form-control border-0 ps-0">
-                            <div className="form-check form-check-inline ps-0 ">
-                                <input type="checkbox" name="genero" value="0" defaultChecked={genero === 0 ? true : false} /><label>&nbsp; Masculino</label><br />
-                            </div>
-                            <div className="form-check form-check-inline ps-0">
-                                <input type="checkbox" name="genero" value="1" defaultChecked={genero === 1 ? true : false} /><label>&nbsp; Femenino</label><br />
-                            </div>
-                            <div className="form-check form-check-inline ps-0">
-                                <input type="checkbox" name="genero" value="2" defaultChecked={genero === 2 ? true : false} /><label>&nbsp; Prefiero no decirlo</label><br />
-                            </div>
+
+                            {
+                                opciones.map(({name}, index ) => (
+                                    <div className="form-check form-check-inline ps-0 " key={index} >
+                                        <input 
+                                            type="checkbox" 
+                                            name={name} 
+                                            value={name}
+                                            checked={checkedState[index]}
+                                            onChange={() => handleCheckChange(index) }
+                                        />
+                                        <label>&nbsp; {name} </label><br />
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                     <div className="form-group form-group-perfil d-flex align-items-center mt-3">
