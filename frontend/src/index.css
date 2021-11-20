@@ -91,6 +91,10 @@ a {
   color: #1DA1F2 !important;
 }
 
+.min-height-80 {
+  min-height: 80px !important;
+}
+
 /*footer*/
 
 .send-btn {
