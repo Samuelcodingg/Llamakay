@@ -126,7 +126,7 @@ export const LoginForm = () => {
                             </div>
                             <div className="mt-3">
                                 <Link
-                                    to="/authentication/register"
+                                    to="/reg-emp"
                                     className="text-secondary"
                                 >
                                     ¿Eres una nueva empresa?
