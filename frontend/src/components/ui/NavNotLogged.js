@@ -5,7 +5,7 @@ export const NavNotLogged = () => {
     return (
         <>
             <NavLink
-                to="/authentication/login"
+                to="/reg-emp"
                 className="me-md-5 text-decoration-none text-white me-0  mt-3 mt-md-0"
             >
                 Ingresar como empresa

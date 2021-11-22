@@ -68,7 +68,8 @@ export const PerfilPage = () => {
                                 <img 
                                     ref={imgRef}
                                     src={ `${API}/auth/${empresa ? 'empresas' : 'alumnos'}/photo/${empresa ? empresa._id : alumno._id}`}  
-                                    className="img-perfil rounded-circle mx-auto" alt="Responsive image"
+                                    className="img-perfil rounded-circle mx-auto" 
+                                    alt="perfil"
                                     onError={onImageError}
                                 />
                                 
