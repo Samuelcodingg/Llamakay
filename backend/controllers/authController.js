@@ -7,7 +7,7 @@ const _ = require('lodash');
 
 exports.signupEmpresaWithPostman = (req, res) => {
     let form = new formidable.IncomingForm();
-
+    form.maxFileSize = 10000000;
     form.keepExtensions = true;
     form.parse(req, (err, fields, files) => {
 
@@ -58,6 +58,7 @@ exports.signupEmpresa = (req, res) => {
 
 exports.signupAlumnoWithPostman = (req, res) => {
     let form = new formidable.IncomingForm();
+    form.maxFileSize = 10000000;
 
     form.keepExtensions = true;
     form.parse(req, (err, fields, files) => {
@@ -249,6 +250,7 @@ exports.updateEmpresa = async (req, res) => {
 
 exports.updatePhotoEmpresa = async (req, res) => {
     let form = new formidable.IncomingForm();
+    form.maxFileSize = 10000000;
 
     form.keepExtensions = true;
 
@@ -272,6 +274,8 @@ exports.updatePhotoEmpresa = async (req, res) => {
 
 exports.updatePhotoAlumno = (req, res) => {
     let form = new formidable.IncomingForm();
+    form.maxFileSize = 10000000;
+
     form.keepExtensions = true;
 
     form.parse(req, (err, fields, files) => {

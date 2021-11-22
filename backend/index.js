@@ -7,6 +7,9 @@ const cors = require('cors');
 //Declaración del servidor
 const app = express();
 
+//para desahibilitar posibilidad de saber el back desde el front
+app.disable('x-powered-by');
+
 //Configuración sensible usada
 require('dotenv').config();
 
