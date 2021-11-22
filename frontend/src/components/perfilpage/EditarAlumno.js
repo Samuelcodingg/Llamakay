@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { editAlumno, getUser } from '../../api/user';
 import Swal from 'sweetalert2';
 
@@ -31,7 +31,7 @@ export const EditarAlumno = ({ datos, alumno }) => {
 
     const { dni_alumno, correo, conocimientos, cel_alumno, pais, departamento, formacion, idiomas, distrito, direccion_alumno } = datosAlumno;
 
-    const loadDataUser = () => {
+    const loadDataUser =  useCallback(() => {
         getUser({ alumno }).then(data => {
             setDatosAlumno({
                 _id: data._id,
@@ -57,7 +57,7 @@ export const EditarAlumno = ({ datos, alumno }) => {
                 })
             );
         })
-    }
+    }, [alumno, opciones.length ])
 
     const handleChange = name => event => {
         setDatosAlumno({ ...datosAlumno, [name]: event.target.value });
@@ -369,7 +369,7 @@ export const EditarAlumno = ({ datos, alumno }) => {
 
     useEffect(() => {
         loadDataUser();
-    }, []);
+    }, [loadDataUser]);
 
     return (
         <form className="mt-4">

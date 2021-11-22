@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { editEmpresa, getUser } from '../../api/user';
 import Swal from 'sweetalert2';
@@ -16,10 +16,8 @@ export const EditarEmpresa = ({empresa}) => {
 
     const {  ruc_empresa, cel_empresa, rubro, direccion_empresa, web_empresa } = datosEmpresa;
 
-    const loadDataUser = () => {
+    const loadDataUser =  useCallback(() => {
         getUser({ empresa }).then(data => {
-            empresa = data;
-            console.log(data);
             setDatosEmpresa({
                 _id: data._id,
                 ruc_empresa: data.ruc_empresa,
@@ -28,9 +26,8 @@ export const EditarEmpresa = ({empresa}) => {
                 direccion_empresa: data.direccion_empresa,
                 web_empresa: data.web_empresa,
             });
-            console.log(datosEmpresa);
         })
-    }
+    }, [empresa])
 
     const handleChange = name => event => {
         setDatosEmpresa({ ...datosEmpresa, [name]: event.target.value });
@@ -67,7 +64,7 @@ export const EditarEmpresa = ({empresa}) => {
 
     useEffect(() => {
         loadDataUser();
-    }, []);
+    }, [loadDataUser]);
 
     return (
         <form className="mt-4">
