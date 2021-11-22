@@ -7,13 +7,20 @@ const cors = require('cors');
 //Declaración del servidor
 const app = express();
 
+//para desahibilitar posibilidad de saber el back desde el front
+app.disable('x-powered-by');
+
 //Configuración sensible usada
 require('dotenv').config();
+const corsOptions = {
+    origin: process.env.FRONT_URL,
+    optionsSuccessStatus: 200,
+};
 
 //Middlewares
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 //Conexión de BD
 mongoose.connect(process.env.DATABASE).then(() => { console.log('DB connection successfull') });
