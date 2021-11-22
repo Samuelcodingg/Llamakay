@@ -13,7 +13,7 @@ app.disable('x-powered-by');
 //Configuración sensible usada
 require('dotenv').config();
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: process.env.FRONT_URL,
     optionsSuccessStatus: 200,
 };
 
