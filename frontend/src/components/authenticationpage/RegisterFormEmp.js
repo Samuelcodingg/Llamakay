@@ -1,8 +1,20 @@
-import React from 'react';
-import { NavbarComponent } from '../ui/NavbarComponent';
+import React, { useState } from 'react';
 import  imgMaleta  from '../ui/assets/maleta.png';
+import { Link } from 'react-router-dom';
 
 export const RegisterFormEmp = () => {
+
+    const [values, setValues] = useState({
+        nombre : '',
+        correo : '',
+        password : '',
+        tipo_usuario : '1',
+        ruc_empresa : '',
+        rs_empresa : '',
+        cel_empresa : '',
+        redirecToReferrer : false,
+    })
+
     return (
         <div>
             <div className="form-emp-section">
@@ -12,7 +24,13 @@ export const RegisterFormEmp = () => {
                     </div>
                     <div className="row my-2 justify-content-end">
                         <div className="col-md-3">
-                            <button type="button" className="btn btn-primary btn-llamakay" style={{width:"100%"}}>Ya tengo una cuenta</button>
+                            <Link 
+                                className="btn btn-primary btn-llamakay text-white" 
+                                to="/authentication/login"
+                                style={{width:"100%"}}
+                            >
+                                Ya tengo una cuenta
+                            </Link>
                         </div>
                     </div>
                     <div className="row my-2">

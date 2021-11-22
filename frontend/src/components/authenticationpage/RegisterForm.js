@@ -8,7 +8,7 @@ export const RegisterForm = () => {
     const [values, setValues] = useState({
         correo: '',
         password: '',
-        tipo_usuario: '',
+        tipo_usuario: '2',
         redirecToReferrer: false,
     })
 
@@ -72,8 +72,8 @@ export const RegisterForm = () => {
     return (
         <>
             {redirectUser()}
-            <div className="container">
-                <div className="row">
+            <div className="container mt-5">
+                <div className="row mt-5">
                     <form className="col-md-6 mx-auto">
                         <h3 className="text-start">Crear una cuenta</h3>
                         <div className="form-group mt-4">
@@ -85,18 +85,6 @@ export const RegisterForm = () => {
                                 name="correo"
                                 value={correo}
                             />
-                        </div>
-                        <div className="form-group mt-4">
-                            <select
-                                className="form-control remove-focus just-bottom-border text-secondary"
-                                onChange={handleChange('tipo_usuario')}
-                                value={tipo_usuario}
-                                name="tipo_usuario"
-                            >
-                                <option value="">Seleccione su tipo de usuario</option>
-                                <option value="1" >Empresa</option>
-                                <option value="2">Alumno</option>
-                            </select>
                         </div>
                         <div className="form-group mt-4">
                             <input 
