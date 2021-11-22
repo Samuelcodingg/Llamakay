@@ -148,6 +148,59 @@ a {
 .rounded-form {
   border-radius: 50rem !important;
 }
+.contenedor-inform{
+  margin: 6rem 0 0 0;
+}
+
+.contenedor-testimonios{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  column-gap: 3rem;
+}
+
+.sombra{
+  -webkit-box-shadow: 10px 5px 15px 0px rgba(112,112,112,0.54);
+  -moz-box-shadow: 10px 5px 15px 0px rgba(112,112,112,0.54);
+  box-shadow: 10px 5px 15px 0px rgba(112,112,112,0.54);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.sombra .imagen-testi{
+  height: auto;
+  width: auto;
+  max-height: 15rem;
+  max-width: 100%;
+  border-radius: 5%;
+}
+
+.Hero{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.contenedor-empresas{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  filter: grayscale(100%);
+  margin: 4rem 0 6rem;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen-emp{
+  width: auto;
+  max-width: 10rem;
+  
+}
 
 /*perfil-page*/
 .img-perfil{
