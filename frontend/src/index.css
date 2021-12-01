@@ -242,12 +242,34 @@ a {
   width: 90%;
 }
 
+/*anuncio page*/
+.container-banner-anuncio {
+  background-image: url('components/anunciopage/banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.nav-anuncio {
+  position: relative;
+  top: -1.4rem;
+}
+
+
+
 /*responsive costumization*/
 
 @media (max-width: 1200px) {
   .saly {
     top: -30px;
     left: -50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-postular {
+    position: relative;
+    top: -10rem;
   }
 }
 
