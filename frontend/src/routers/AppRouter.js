@@ -21,7 +21,7 @@ export const AppRouter = () => {
                     <Route exact path="/authentication/:type" component={AuthenticationPage} />
                     <Route exact path="/reg-emp" component={RegisterEmpPage} />
                     <Route exact path="/perfil" component={PerfilPage} />
-                    <Route exact path="/anuncio/:id" component={AnuncioPage} />                    
+                    <Route exact path="/anuncio/:idEmpresa/:idAnuncio" component={AnuncioPage} />                    
                 </Switch>
             </div>
 
