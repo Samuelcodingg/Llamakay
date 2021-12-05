@@ -5,7 +5,7 @@ import send from './send.png';
 
 export const Footer = () => {
     return (
-        <footer className="d-flex justify-content-between align-items-center bg-oscuro text-white px-5 py-4 text-center text-md-start">
+        <footer className="d-flex justify-content-between align-items-center bg-oscuro text-white px-5 py-4 text-center text-md-start mt-5">
 
             <div className="container">
                 <div className="row">

@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
+const Empresa = mongoose.model('Empresa');
 
 const anuncioSchema = new mongoose.Schema(
     {
-        nro_participantes: {
-            type: Number,
-            required: true
-        },
         monto_pago: {
             type: Number,
             required: true
@@ -30,8 +27,21 @@ const anuncioSchema = new mongoose.Schema(
             type: Boolean,
             required: true
         },
-        cargo: {
+        titulo: {
             type: String,
+            required: true
+        },
+        requisitos: {
+            type: String,
+            required: true
+        },
+        funciones: {
+            type: String,
+            required: true
+        },
+        id_empresa: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Empresa',
             required: true
         }
     },
