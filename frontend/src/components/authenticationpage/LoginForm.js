@@ -132,6 +132,14 @@ export const LoginForm = () => {
                                     ¿Eres una nueva empresa?
                                 </Link>
                             </div>
+                            <div className="mt-3">
+                                <Link
+                                    to="/buscar-anuncios"
+                                    className="text-secondary"
+                                >
+                                    Buscar Anuncios
+                                </Link>
+                            </div>
                         </div>
                     </form>
                 </div>
