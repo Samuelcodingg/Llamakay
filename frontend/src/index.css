@@ -16,6 +16,7 @@ a {
   color: #000 !important;
 }
 
+
 /*utilities*/
 
 .fontAwesome {
@@ -243,8 +244,61 @@ a {
 }
 
 /* Página de Búsqueda de anuncios*/
+
+/*Caja de filtros*/
+
+.buscar-anuncio-content-container{
+  display: inline-flex;
+  width: 100%;
+}
+
+.filtro-container{
+  width: 20rem ;
+}
+
+.anuncios-container{
+  width: calc(100% - 20rem);
+}
+
+.anuncios-container-cabecera{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.anuncios-ordenar{
+  width: 15rem;
+  justify-content: flex-end;
+  display: flex ;
+}
+
+.form-select{
+  width: 60% !important;
+  height: 2.5rem;
+}
+
+.filtros{
+
+  width: 2;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.filtros > div > p{
+  margin-left: 1rem;
+  line-height: 70%;
+}
+
+/*Anuncios de la página de filtros*/
 .anuncio-busqueda{
-  width: 40rem;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .anuncio-busqueda a{
@@ -265,22 +319,38 @@ a {
 }
 
 .titulo-anuncio{
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .anuncio-busqueda-text{
-  width: 70%;
+  width: 80%;
 }
 
 .anuncio-busqueda-img{
-  width: 30%;
+  width: 20%;
 }
 
 .anuncio-busqueda-img img{
-  width: 100%;
-  object-fit: cover;
+  width: 95%;
+  height: 95%;
+  margin: 2.5%;
+  object-fit: contain;
 }
+
+/*anuncio page*/
+.container-banner-anuncio {
+  background-image: url('components/anunciopage/banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.nav-anuncio {
+  position: relative;
+  top: -1.4rem;
+}
+
 
 
 /*responsive costumization*/
@@ -289,6 +359,13 @@ a {
   .saly {
     top: -30px;
     left: -50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-postular {
+    position: relative;
+    top: -10rem;
   }
 }
 
