@@ -6,7 +6,6 @@ import { isAuthenticated } from '../../api/auth';
 import { getAnuncioById } from '../../api/anuncio';
 import { OfertaSection } from './OfertaSection';
 import { EmpresaSection } from './EmpresaSection';
-import { AvisosSimSec } from './AvisosSimSec';
 import { API } from '../../config';
 import { getUser } from '../../api/user';
 
@@ -29,14 +28,17 @@ export const AnuncioPage = () => {
     const [datosEmpresa, setDatosEmpresa] = useState({
         _id: idEmpresa,
         rs_empresa: '',
-        descripcion: ''
+        departamento: '',
+        distrito: '',
+        rubro: '',
+        correo: ''
     });
 
     const { titulo, provincia, distrito } = datosAnuncio;
 
     const { rs_empresa } = datosEmpresa;
 
-    const { token } = isAuthenticated();
+    const { token, alumno } = isAuthenticated();
 
     const loadAnuncio = () => {
         getAnuncioById({idAnuncio}).then(data => {
@@ -64,16 +66,28 @@ export const AnuncioPage = () => {
                 setDatosEmpresa({
                     _id: data._id,
                     rs_empresa: data.rs_empresa,
-                    descripcion: data.descripcion
+                    descripcion: data.descripcion,
+                    departamento: data.departamento,
+                    distrito: data.distrito,
+                    rubro: data.rubro,
+                    correo: data.correo
                 });
             }
         })
     }
 
     const redirectUser = () => {
-        if(!token) {
+        if(!token || !alumno) {
             return <Redirect to='/' />
         }
+    }
+
+    const postularAnuncio = () => {
+        const data = {
+            idAnuncio,
+            idAlumno: alumno._id
+        }
+        console.log(data);
     }
 
     useEffect(()=> {
@@ -83,7 +97,7 @@ export const AnuncioPage = () => {
 
     return (
         <div>
-            {/* {redirectUser()} */}
+            {redirectUser()}
             <NavbarComponent />
 
             <div className="container-banner-anuncio">
@@ -107,7 +121,7 @@ export const AnuncioPage = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-8">
-                        <div className="bg-oscuro rounded-pill px-3 py-2 text-white d-flex justify-content-between nav-anuncio align-items-center">
+                        <div className="bg-oscuro rounded-pill px-3 py-2 text-white d-flex justify-content-evenly nav-anuncio align-items-center">
                             <div 
                                 className={`${ ofertaSection===0 ? "bg-white text-black":''} rounded-pill px-4 py-1 pointer`} 
                                 onClick={() => setOfertaSection(0)}
@@ -120,23 +134,10 @@ export const AnuncioPage = () => {
                             >
                                 Empresa
                             </div>
-                            <div 
-                                className={`${ ofertaSection===2 ? "bg-white text-black":''} rounded-pill px-4 py-1 pointer`}
-                                onClick={() => setOfertaSection(2)}
-                            >
-                                Evaluaciones
-                            </div>
-                            <div 
-                                className={`${ ofertaSection===3 ? "bg-white text-black":''} rounded-pill px-4 py-1 pointer`}
-                                onClick={() => setOfertaSection(3)}
-                            >
-                                Avisos similares
-                            </div>
                         </div>
 
                         { ofertaSection === 0 ? <OfertaSection datosEmpresa={datosEmpresa} datosAnuncio={datosAnuncio} /> : null }
-                        { ofertaSection === 1 ? <EmpresaSection /> : null }
-                        { ofertaSection === 3 ? <AvisosSimSec /> : null }
+                        { ofertaSection === 1 ? <EmpresaSection datosEmpresa={datosEmpresa} /> : null }
                     </div>
                     <div className="col-md-4">
                         <div className="border border-dark p-3 container-postular bg-white" >
@@ -158,6 +159,7 @@ export const AnuncioPage = () => {
                                     <div className="text-center">
                                         <button
                                             className="bg-oscuro px-4 py-2 rounded-pill text-white border-0"
+                                            onClick={postularAnuncio}
                                         >
                                             Postular
                                         </button>

@@ -42,3 +42,19 @@ exports.getAnuncioById = (req, res, next) => {
     }
     next();
 }
+
+exports.postular = async (req, res) => {
+    try {
+        const anuncio = await Anuncio.findById(req.params.anuncioId);
+        anuncio.postulantes.push(req.body.idAlumno);
+        await anuncio.save();
+        return res.json({
+            message: "Postulante agregado con exito"
+        });
+    } catch(err) {
+        console.log(err);
+        return res.status(400).json({
+            error: err
+        });
+    }
+}

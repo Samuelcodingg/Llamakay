@@ -2,8 +2,6 @@ import React from 'react';
 
 export const OfertaSection = ({datosEmpresa, datosAnuncio}) => {
 
-    console.log(datosEmpresa);
-
     return (
         <>
             <div>
