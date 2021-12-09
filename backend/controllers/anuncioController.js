@@ -58,3 +58,23 @@ exports.postular = async (req, res) => {
         });
     }
 }
+
+exports.isPostulado = async (req, res) => {
+    try {
+        const anuncio = await Anuncio.findById(req.params.anuncioId);
+        const postulante = anuncio.postulantes.find(postulante => postulante == req.body.idAlumno);
+        if(postulante) {
+            return res.json({
+                message: true
+            });
+        }
+        return res.json({
+            message: false
+        });
+    } catch(err) {
+        console.log(err);
+        return res.status(400).json({
+            error: err
+        });
+    }
+}
