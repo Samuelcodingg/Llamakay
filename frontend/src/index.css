@@ -62,6 +62,10 @@ a {
   background-color: #010E20 !important;
 }
 
+.bg-disabled {
+  background-color: #010e20a6 !important;
+}
+
 .just-bottom-border {
   border-top: none !important;
   border-right: none !important;

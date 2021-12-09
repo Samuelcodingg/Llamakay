@@ -7,3 +7,28 @@ export const getAnuncioById = async (user) => {
     return response.json();
 };
 
+export const postular = async (data) => {
+    const { idAnuncio, idAlumno } = data;
+
+    const response = await fetch(`${API}/anuncios/postular/${idAnuncio}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    return response.json();
+}
+
+export const isPostulado = async (data) => {
+    const { idAnuncio, idAlumno } = data;
+
+    const response = await fetch(`${API}/anuncios/postulado/${idAnuncio}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    });
+    return response.json();
+}

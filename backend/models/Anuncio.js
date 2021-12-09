@@ -43,6 +43,10 @@ const anuncioSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Empresa',
             required: true
+        },
+        postulantes: {
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: 'Alumno'
         }
     },
     {timestamps: true}
