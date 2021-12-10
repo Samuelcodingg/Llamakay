@@ -289,13 +289,58 @@ a {
   margin-left: 5%;
   margin-right: 5%;
   padding: 1rem;
-  border: 1px solid black;
+  border: 1px solid rgb(201, 201, 201);
   border-radius: 10px;
 }
 
-.filtros > div > p{
+.filtros:hover{
+  box-shadow: 1px 1px 5px rgb(201, 201, 201);
+}
+
+.filtros > div > a{
+  display: block;
   margin-left: 1rem;
-  line-height: 70%;
+  border-radius: 10px;
+  padding: 3px;
+  padding-left: 8px;
+  padding-right: 5px;
+}
+
+.filtros > div > a:hover{
+  background-color: rgb(144, 214, 255);
+}
+
+.filtros-busqueda input{
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.filtro-seleccionado{
+  display: inline-flex;
+  justify-content: space-between;
+  width: 90%;
+  height: 2rem;
+  margin-top: 5px;
+  border-radius: 10px;
+  padding-left: 1rem;
+  border: 1px solid #8E8E8E;
+}
+
+.filtro-seleccionado div{
+  height: 2rem;
+}
+
+.filtro-seleccionado div p{
+  margin-top: 0.2rem;
+}
+
+.visibilidad{
+  display: none;
+}
+
+.bx{
+  font-size: 2rem;
 }
 
 /*Anuncios de la página de filtros*/
@@ -303,6 +348,7 @@ a {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 0.5rem;
 }
 
 .anuncio-busqueda a{
@@ -313,9 +359,12 @@ a {
 .anuncio-busqueda-content{
   padding: 1rem;
   display: flex;
-  border: 1px solid #000;
+  border: 1px solid rgb(201, 201, 201);
   border-radius: 10px;
-  box-shadow:2px 2px 5px #000;
+}
+
+.anuncio-busqueda-content:hover{
+  box-shadow: 1px 1px 5px rgb(201, 201, 201);
 }
 
 .anuncio-busqueda-content p{
