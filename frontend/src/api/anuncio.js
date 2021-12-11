@@ -32,3 +32,10 @@ export const isPostulado = async (data) => {
     });
     return response.json();
 }
+
+export const listarAnuncios = async () => {
+    const response = await fetch(`${API}/anuncios/list`, {
+        method: "GET",
+    });
+    return response.json();
+};
