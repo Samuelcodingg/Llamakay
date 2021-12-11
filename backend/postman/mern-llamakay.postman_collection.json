@@ -78,12 +78,7 @@
 							"type": "file",
 							"src": "/D:/Samuel/Universidad/7mo Ciclo/Métodos Formales para Pruebas/Llamakay/frontend/src/components/homepage/image 6.png"
 						}
-					],
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					]
 				},
 				"url": {
 					"raw": "http://localhost:5000/api/auth/signupEmpresaWithPostman",
@@ -138,7 +133,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nro_participantes\": 15,\r\n    \"monto_pago\":1800,\r\n    \"mes_experiencia\":0,\r\n    \"des_puesto\":\"Programador backend\",\r\n    \"fecha_inicio\": \"2021-11-21\",\r\n    \"fecha_fin\":\"2021-02-08\",\r\n    \"estado\": true,\r\n    \"cargo\":\"Programador backend\"\r\n}",
+					"raw": "{\r\n    \"monto_pago\":1500,\r\n    \"mes_experiencia\":0,\r\n    \"des_puesto\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean interdum magna vitae imperdiet interdum. Etiam ornare, metus vel pretium varius, sapien orci ultrices elit, quis porta arcu lacus sit amet tortor. Aenean sagittis sem neque, vitae aliquam odio iaculis sed. Morbi tristique congue justo, vitae lacinia dui tristique vel. Sed fringilla massa nec mattis auctor. Ut auctor lacus ut metus luctus tempus. Ut non libero nec felis ullamcorper tempus. Praesent elit nisi, ultricies nec nisl vitae, commodo vestibulum eros. Integer ut nisi et risus volutpat facilisis at at massa. Suspendisse viverra, velit at maximus congue, mauris ligula vulputate nisl, non elementum urna dolor nec nisl.\",\r\n    \"fecha_inicio\": \"2021-12-21\",\r\n    \"fecha_fin\":\"2021-03-21\",\r\n    \"estado\": true,\r\n    \"titulo\":\"Software engineer intern\",\r\n    \"requisitos\":\"-Mínimo 5to ciclo\\n-Conocimiento de Java, SpringBoot\\n-Deseable conocimiento en Hibernate\",\r\n    \"funciones\":\"-Apoyo en el mantenimiento de las APIS desarrolladas\\n-Apoyo en documentación\",\r\n    \"id_empresa\":\"619821adcce9c8c1a756e1b5\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -146,7 +141,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/anuncio/create",
+					"raw": "http://localhost:5000/api/anuncios/create",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -154,7 +149,7 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"anuncio",
+						"anuncios",
 						"create"
 					]
 				}
@@ -167,7 +162,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/anuncio/list",
+					"raw": "http://localhost:5000/api/anuncios/list",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -175,7 +170,7 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"anuncio",
+						"anuncios",
 						"list"
 					]
 				}
@@ -540,6 +535,101 @@
 						"alumnos",
 						"photo",
 						"61980907ab657f258a638b12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Anuncio por Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/anuncios/61a7ba97d92e908226676802",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"anuncios",
+						"61a7ba97d92e908226676802"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Postular anuncio",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idAlumno\": \"61980907ab657f258a638b12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/anuncios/postular/61a7ba97d92e908226676802",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"anuncios",
+						"postular",
+						"61a7ba97d92e908226676802"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isPostulado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idAlumno\": \"61980907ab657f258a638b12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/anuncios/postulado/61a7ba97d92e908226676802",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"anuncios",
+						"postulado",
+						"61a7ba97d92e908226676802"
 					]
 				}
 			},
