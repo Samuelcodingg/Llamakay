@@ -47,6 +47,10 @@ const anuncioSchema = new mongoose.Schema(
         postulantes: {
             type: [mongoose.Schema.Types.ObjectId],
             ref: 'Alumno'
+        },
+        fecha_publicacion: {
+            type: Date,
+            default: Date.now
         }
     },
     {timestamps: true}
