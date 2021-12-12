@@ -129,7 +129,7 @@ export const AnuncioPage = () => {
             <div className="container-banner-anuncio">
                 <div className="py-5">
                     <Link
-                        to="/anuncios"
+                        to="/buscar-anuncios"
                         className="ms-5 rounded-pill bg-oscuro text-white px-4 py-2"
                     >
                         <i className="fas fa-search"></i> Volver al listado
