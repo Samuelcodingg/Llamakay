@@ -61,7 +61,6 @@ export const BuscarAnunciosPage = () => {
     }
 
     React.useEffect(() => {
-        window.addEventListener("click", seleccionarFiltro);
         window.addEventListener("DOMContentLoaded", cargarFiltros);
 
         getAnuncios();
@@ -82,7 +81,7 @@ export const BuscarAnunciosPage = () => {
                     <div className="filtros mt-3">
                         <div className="filtros-seleccionados-contenedor">
                             <h3>Filtros seleccionados</h3>
-                            <div className="filtros-seleccionados">
+                            <div className="filtros-seleccionados" onClick={seleccionarFiltro} >
                             </div>
                         </div>
                         <div className="filtros-busqueda">
@@ -91,35 +90,35 @@ export const BuscarAnunciosPage = () => {
                         </div>
                         <div className="filtros-fecha">
                             <h3>Fecha de publicación</h3>
-                            <a href="#">Urgente</a>
-                            <a href="#">Últimos 3 días</a>
-                            <a href="#">Última semana</a>
-                            <a href="#">Últimos 15 días</a>
-                            <a href="#">Último mes</a>
+                            <a href="#" onClick={seleccionarFiltro} >Urgente</a>
+                            <a href="#" onClick={seleccionarFiltro}>Últimos 3 días</a>
+                            <a href="#" onClick={seleccionarFiltro}>Última semana</a>
+                            <a href="#" onClick={seleccionarFiltro}>Últimos 15 días</a>
+                            <a href="#" onClick={seleccionarFiltro}>Último mes</a>
                         </div>
                         <div className="filtros-distrito">
                             <h3>Distrito</h3>
-                            <a href="#">Lima</a>
-                            <a href="#">Miraflores</a>
-                            <a href="#">Chosica</a>
-                            <a href="#">Ate</a>
-                            <a href="#">Lince</a>
+                            <a href="#" onClick={seleccionarFiltro}>Lima</a>
+                            <a href="#" onClick={seleccionarFiltro}>Miraflores</a>
+                            <a href="#" onClick={seleccionarFiltro}>Chosica</a>
+                            <a href="#" onClick={seleccionarFiltro}>Ate</a>
+                            <a href="#" onClick={seleccionarFiltro}>Lince</a>
                         </div>
 
                         <div className="filtros-salario">
                             <h3>Salario</h3>
-                            <a href="#">Menos de S/.750</a>
-                            <a href="#">Más de S/.750</a>
-                            <a href="#">Más de S/.1500</a>
-                            <a href="#">Más de S/.2500</a>
-                            <a href="#">Más de S/.3500</a>
+                            <a href="#" onClick={seleccionarFiltro}>Menos de S/.750</a>
+                            <a href="#" onClick={seleccionarFiltro}>Más de S/.750</a>
+                            <a href="#" onClick={seleccionarFiltro}>Más de S/.1500</a>
+                            <a href="#" onClick={seleccionarFiltro}>Más de S/.2500</a>
+                            <a href="#" onClick={seleccionarFiltro}>Más de S/.3500</a>
                         </div>
 
                         <div className="filtros-jornada">
                             <h3>Jornada</h3>
-                            <a href="#">Tiempo Completo</a>
-                            <a href="#">Tiempo parcial</a>
-                            <a href="#">Desde casa</a>
+                            <a href="#" onClick={seleccionarFiltro}>Tiempo Completo</a>
+                            <a href="#" onClick={seleccionarFiltro}>Tiempo parcial</a>
+                            <a href="#" onClick={seleccionarFiltro}>Desde casa</a>
                         </div>
 
                     </div>
