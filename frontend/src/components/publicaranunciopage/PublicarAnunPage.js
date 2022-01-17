@@ -1,9 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { publicarAnuncio } from '../../api/anuncio'
+import { isAuthenticated } from '../../api/auth'
 import { Footer } from '../ui/Footer'
 import { NavbarComponent } from '../ui/NavbarComponent'
+import Swal from 'sweetalert2';
 
 export const PublicarAnunPage = () => {
+
+    const { _id } = isAuthenticated().empresa;
+
+    const [valuesForm, setValuesForm] = useState({
+        titulo: '',
+        des_puesto: '',
+        requisitos: '',
+        funciones: '',
+        id_empresa: _id
+    });
+
+    const handleChange = name => event => {
+        setValuesForm({ ...valuesForm, [name]: event.target.value });
+    };
+
+    const clickSubmit = event => {
+        event.preventDefault();
+
+        setValuesForm({ ...valuesForm });
+
+        if(valuesForm.titulo === '' || valuesForm.des_puesto === '' || valuesForm.requisitos === '' || valuesForm.funciones === '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Por favor, llene todos los campos'
+            })
+            return;
+        }
+
+        publicarAnuncio(valuesForm)
+            .then(data => {
+                if(data.error) {
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: data.error
+                    })
+                } else {
+                    Swal.fire({
+                        type: 'success',
+                        title: 'Exito',
+                        text: 'Anuncio publicado con exito'
+                    })
+                    setValuesForm({
+                        titulo: '',
+                        des_puesto: '',
+                        requisitos: '',
+                        funciones: '',
+                        id_empresa: _id
+                    })
+                }
+            })
+    }
+
     return (
         <div>
             <NavbarComponent />
@@ -37,26 +94,46 @@ export const PublicarAnunPage = () => {
                 <form className='p-4'>
                     <div className="form-group">
                         <p>Puesto / Título del aviso <span className='text-danger'>*</span> </p>
-                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el puesto o título del aviso" />
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            placeholder="Ingresa el puesto o título del aviso" 
+                            value={valuesForm.titulo}
+                            onChange={handleChange('titulo')}    
+                        />
                     </div>
                     <div className="form-group mt-4">
                         <p>Descripción del aviso <span className='text-danger'>*</span> </p>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Ingresa la descripción del aviso"></textarea>
+                        <textarea 
+                            className="form-control" 
+                            rows="5" 
+                            placeholder="Ingresa la descripción del aviso"
+                            value={valuesForm.des_puesto}
+                            onChange={handleChange('des_puesto')}
+                        ></textarea>
+                    </div>
+                    <div className="form-group mt-4">
+                        <p>Requisitos <span className='text-danger'>*</span> </p>
+                        <textarea 
+                            className="form-control" 
+                            rows="5" 
+                            placeholder="Ingresa los requisitos del puesto"
+                            value={valuesForm.requisitos}
+                            onChange={handleChange('requisitos')}
+                        ></textarea>
+                    </div>
+                    <div className="form-group mt-4">
+                        <p>Funciones <span className='text-danger'>*</span> </p>
+                        <textarea 
+                            className="form-control" 
+                            rows="5" 
+                            placeholder="Ingresa las funciones del puesto"
+                            value={valuesForm.funciones}
+                            onChange={handleChange('funciones')}
+                        ></textarea>
                     </div>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-md-6'>
-                                <div className="form-group mt-4">
-                                    <p>Área de empleo <span className='text-danger'>*</span> </p>
-                                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el área de empleo" />
-                                </div>
-                            </div>
-                            <div className='col-md-6'>
-                                <div className="form-group mt-4">
-                                    <p>Subárea de empleo <span className='text-danger'>*</span> </p>
-                                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa la subárea de empleo" />
-                                </div>
-                            </div>
                             <div className='col-md-6'>
                                 <div className="form-group mt-4">
                                     <p>País <span className='text-danger'>*</span> </p>
@@ -71,8 +148,8 @@ export const PublicarAnunPage = () => {
                             </div>
                             <div className='col-md-6'>
                                 <div className="form-group mt-4">
-                                    <p>Ciudad <span className='text-danger'>*</span> </p>
-                                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa la ciudad" />
+                                    <p>Distrito <span className='text-danger'>*</span> </p>
+                                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el distrito" />
                                 </div>
                             </div>
                             <div className='col-md-6'>
@@ -90,7 +167,11 @@ export const PublicarAnunPage = () => {
                         >
                             Cancelar
                         </Link>
-                        <button type="submit" className="btn btn-primary btn-llamakay px-5">
+                        <button
+                            type="submit" 
+                            className="btn btn-primary btn-llamakay px-5"
+                            onClick={clickSubmit}
+                        >
                             Continuar
                         </button>
                     </div>

@@ -39,3 +39,14 @@ export const listarAnuncios = async () => {
     });
     return response.json();
 };
+
+export const publicarAnuncio = async (data) => {
+    const response = await fetch(`${API}/anuncios/create`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    return response.json();
+};

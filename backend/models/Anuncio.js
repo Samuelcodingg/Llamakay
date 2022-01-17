@@ -4,40 +4,31 @@ const Empresa = mongoose.model('Empresa');
 const anuncioSchema = new mongoose.Schema(
     {
         monto_pago: {
-            type: Number,
-            required: true
+            type: Number
         },
         mes_experiencia: {
-            type: Number,
-            required: true
+            type: Number
         },
         des_puesto: {
-            type: String,
-            required: true
+            type: String
         },
         fecha_inicio: {
-            type: Date,
-            required: true
+            type: Date
         },
         fecha_fin: {
-            type: Date,
-            required: true
+            type: Date
         },
         estado: {
-            type: Boolean,
-            required: true
+            type: Boolean
         },
         titulo: {
-            type: String,
-            required: true
+            type: String
         },
         requisitos: {
-            type: String,
-            required: true
+            type: String
         },
         funciones: {
-            type: String,
-            required: true
+            type: String
         },
         id_empresa: {
             type: mongoose.Schema.Types.ObjectId,
