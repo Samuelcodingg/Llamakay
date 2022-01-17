@@ -16,6 +16,9 @@ a {
   color: #000 !important;
 }
 
+textarea {
+  resize: none !important;
+}
 
 /*utilities*/
 
@@ -121,6 +124,12 @@ a {
 
 .min-height-80 {
   min-height: 80px !important;
+}
+
+.banner-size {
+  width: 100% !important;
+  height: 300px !important;
+  background-image: url('components/anunciopage/banner.jpg');
 }
 
 /*footer*/
@@ -404,7 +413,14 @@ a {
   top: -1.4rem;
 }
 
+/*publicar anuncio page*/
+.pub-form {
+  top: -180px;
+}
 
+.icon-pub {
+  top: -80px;
+}
 
 /*responsive costumization*/
 

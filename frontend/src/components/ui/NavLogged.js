@@ -33,6 +33,19 @@ export const NavLogged = () => {
                 >
                     Cerrar sesión
                 </NavLink>
+                {
+                    // if empresa exists
+                    isAuthenticated().empresa ?
+                        <NavLink
+                            to="/publicar-anuncio"
+                            className="me-md-5 text-decoration-none text-white me-0  mt-3 mt-md-0"
+                        >
+                            Publicar anuncio
+                        </NavLink>
+                        :
+                        null
+
+                }
                 <NavLink
                     to="/perfil"
                     className="me-md-5 text-decoration-none text-white me-0 mt-3 mt-md-0"

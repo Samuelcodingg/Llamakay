@@ -9,6 +9,7 @@ import { AuthenticationPage } from '../components/authenticationpage/Authenticat
 import { RegisterEmpPage } from '../components/authenticationpage/RegisterEmpPage';
 import { HomePage } from '../components/homepage/HomePage';
 import { PerfilPage } from '../components/perfilpage/PerfilPage';
+import { PublicarAnunPage } from '../components/publicaranunciopage/PublicarAnunPage';
 import { BuscarAnunciosPage } from '../components/searchPosts/BuscarAnunciosPage';
 
 export const AppRouter = () => {
@@ -23,6 +24,7 @@ export const AppRouter = () => {
                     <Route exact path="/reg-emp" component={RegisterEmpPage} />
                     <Route exact path="/perfil" component={PerfilPage} />
                     <Route exact path="/buscar-anuncios" component={BuscarAnunciosPage} />
+                    <Route exact path="/publicar-anuncio" component={PublicarAnunPage} />
                     <Route exact path="/anuncio/:idEmpresa/:idAnuncio" component={AnuncioPage} />                    
                 </Switch>
             </div>
